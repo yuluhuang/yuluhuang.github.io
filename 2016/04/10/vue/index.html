@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  
+  <title>vue | 只做一件事, 做好一件事, 做正确的事</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="从ng转站vue已经一个星期了，在这里记录自己学习经历读文档第一步 通读文档，因为有中文文档所以难度大大减小，不过的提一句 vue的社区很山寨，qq群付费，相对于ng群太少了，总结社区不活跃，曾经想加一个，问的是作者名字的三个字母，那时候我真不太清楚，好吧有点水，但我知道他是中国人，之后我就回 本是同根生，相煎何太急，就给我拒了，太没情怀了，算了我也就懒得加了，一直活跃在ng社区，虽然是ng但是不">
+<meta name="keywords" content="vue[持续更新]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue">
+<meta property="og:url" content="http://yuluhuang.github.io/2016/04/10/vue/index.html">
+<meta property="og:site_name" content="只做一件事, 做好一件事, 做正确的事">
+<meta property="og:description" content="从ng转站vue已经一个星期了，在这里记录自己学习经历读文档第一步 通读文档，因为有中文文档所以难度大大减小，不过的提一句 vue的社区很山寨，qq群付费，相对于ng群太少了，总结社区不活跃，曾经想加一个，问的是作者名字的三个字母，那时候我真不太清楚，好吧有点水，但我知道他是中国人，之后我就回 本是同根生，相煎何太急，就给我拒了，太没情怀了，算了我也就懒得加了，一直活跃在ng社区，虽然是ng但是不">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-28T03:19:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue">
+<meta name="twitter:description" content="从ng转站vue已经一个星期了，在这里记录自己学习经历读文档第一步 通读文档，因为有中文文档所以难度大大减小，不过的提一句 vue的社区很山寨，qq群付费，相对于ng群太少了，总结社区不活跃，曾经想加一个，问的是作者名字的三个字母，那时候我真不太清楚，好吧有点水，但我知道他是中国人，之后我就回 本是同根生，相煎何太急，就给我拒了，太没情怀了，算了我也就懒得加了，一直活跃在ng社区，虽然是ng但是不">
+  
+    <link rel="alternative" href="/atom.xml" title="只做一件事, 做好一件事, 做正确的事" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+
+      <link type=“text/plain” rel=“author” href=“humans.txt” />
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">只做一件事, 做好一件事, 做正确的事</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Continuous development，not episodic</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about/index.html">about</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yuluhuang.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vue" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/10/vue/" class="article-date">
+  <time datetime="2016-04-10T07:51:04.000Z" itemprop="datePublished">2016-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="从ng转站vue已经一个星期了，在这里记录自己学习经历"><a href="#从ng转站vue已经一个星期了，在这里记录自己学习经历" class="headerlink" title="从ng转站vue已经一个星期了，在这里记录自己学习经历"></a>从ng转站vue已经一个星期了，在这里记录自己学习经历</h1><h2 id="读文档"><a href="#读文档" class="headerlink" title="读文档"></a>读文档</h2><p>第一步 通读文档，因为有中文文档所以难度大大减小，不过的提一句 vue的社区很山寨，qq群付费，相对于ng群太少了，总结社区不活跃，曾经想加一个，问的是作者名字的三个字母，那时候我真不太清楚，好吧有点水，但我知道他是中国人，之后我就回 本是同根生，相煎何太急，就给我拒了，太没情怀了，算了我也就懒得加了，一直活跃在ng社区，虽然是ng但是不排斥其他框架我们什么都讨论。我是来安利的~</p>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><p>可以从 vue/example/todomvc开始 只有几个文件 来感受一下，如果你能直接上手也行，对于具体业务对vue的了解更直观。</p>
+<h2 id="读前人的博客"><a href="#读前人的博客" class="headerlink" title="读前人的博客"></a>读前人的博客</h2><p>这很有帮助相信我，站在巨人的肩膀上总能看的更远</p>
+<h1 id="总结：多读，多看，多写，至于问不问你自己考量"><a href="#总结：多读，多看，多写，至于问不问你自己考量" class="headerlink" title="总结：多读，多看，多写，至于问不问你自己考量"></a>总结：多读，多看，多写，至于问不问你自己考量</h1><h1 id="从ng转站vue第二个星期了（16-4-16）"><a href="#从ng转站vue第二个星期了（16-4-16）" class="headerlink" title="从ng转站vue第二个星期了（16.4.16）"></a>从ng转站vue第二个星期了（16.4.16）</h1><h2 id="上手项目是最快的学习途径"><a href="#上手项目是最快的学习途径" class="headerlink" title="上手项目是最快的学习途径"></a>上手项目是最快的学习途径</h2><h3 id="目前的重点转到了业务处理上，在购物车页进行实践，和ng的处理方式大同小异"><a href="#目前的重点转到了业务处理上，在购物车页进行实践，和ng的处理方式大同小异" class="headerlink" title="目前的重点转到了业务处理上，在购物车页进行实践，和ng的处理方式大同小异"></a>目前的重点转到了业务处理上，在购物车页进行实践，和ng的处理方式大同小异</h3><p>他们两者都是采用双向绑定，只是实现原理不同，采用一个源数据控制页面</p>
+<h3 id="他们也有相同问题-双括号-，ng使用ng-bind-vue中v-bind却不是这么用的，你可以用v-text-or-v-html"><a href="#他们也有相同问题-双括号-，ng使用ng-bind-vue中v-bind却不是这么用的，你可以用v-text-or-v-html" class="headerlink" title="他们也有相同问题 双括号 ，ng使用ng-bind,vue中v-bind却不是这么用的，你可以用v-text or v-html"></a>他们也有相同问题 双括号 ，ng使用ng-bind,vue中v-bind却不是这么用的，你可以用v-text or v-html</h3><p>绑定到页面上</p>
+<h2 id="目前不足并要做的"><a href="#目前不足并要做的" class="headerlink" title="目前不足并要做的"></a>目前不足并要做的</h2><ol>
+<li>一切皆组件，这是一种理念，就像ng，dom操作要放在指令中</li>
+<li>最佳实践，我决定取扒别人的源码，目前的代码都是屎一样放到一个vue文件里</li>
+</ol>
+<h2 id="编辑器推荐"><a href="#编辑器推荐" class="headerlink" title="编辑器推荐"></a>编辑器推荐</h2><h3 id="经过今天的尝试，目前支持最好的是atom，vscode-最差，sublime没试过，不过应该和atom不相上下"><a href="#经过今天的尝试，目前支持最好的是atom，vscode-最差，sublime没试过，不过应该和atom不相上下" class="headerlink" title="经过今天的尝试，目前支持最好的是atom，vscode 最差，sublime没试过，不过应该和atom不相上下"></a>经过今天的尝试，目前支持最好的是atom，vscode 最差，sublime没试过，不过应该和atom不相上下</h3><ol>
+<li>atom</li>
+<li>webstorm</li>
+<li>vs code</li>
+</ol>
+<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><ol>
+<li>文档一定要熟（个人绝得文档还不够详细）</li>
+<li>看大量博客（会越来越多）</li>
+<li>看视频（找找还是有的）学习实践经验 （非熟手）</li>
+</ol>
+<h1 id="从ng转站vue第三个星期了（16-4-25）"><a href="#从ng转站vue第三个星期了（16-4-25）" class="headerlink" title="从ng转站vue第三个星期了（16.4.25）"></a>从ng转站vue第三个星期了（16.4.25）</h1><p>ps: 之前没想通travis的好处，现在好像发现了，让我试试~ OK的不需要自己装环境，但是如果构建失败就麻烦了</p>
+<h1 id="坑集"><a href="#坑集" class="headerlink" title="坑集"></a>坑集</h1><ol>
+<li><p>checkbox 区分对象与字符串</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"inlineCheckbox2"</span> <span class="attr">class</span>=<span class="string">"px"</span> <span class="attr">v-model</span>=<span class="string">"addr.isDefault"</span> <span class="attr">v-bind:true-value</span>=<span class="string">"'y'"</span> <span class="attr">v-bind:false-value</span>=<span class="string">"'n'"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>驼峰命名法</p>
+</li>
+</ol>
+<h1 id="居然隔了一个月（16-5-27）"><a href="#居然隔了一个月（16-5-27）" class="headerlink" title="居然隔了一个月（16.5.27）"></a>居然隔了一个月（16.5.27）</h1><p>一直忙于业务花了好长时间不停的改bug，测试都无语了，没改一个bug总会引入其他的，这都是不可预测的，想想引入测试但是真能有作用吗？总得试试<br>今天又填了一个大坑 vue 的驼峰命名法，说实在的如果是以前我应该很快就能定位问题，事实上在本地都可以，只是报警告，但到了预发环境就会出问题~<br>还有keep-live 也是个大坑，谢天谢地总算把图片轮播这一块解决了，之后就是组件抽离和测试了</p>
+<h2 id="开启-HTML5-History-模式"><a href="#开启-HTML5-History-模式" class="headerlink" title="开启 HTML5 History 模式"></a>开启 HTML5 History 模式</h2><ol>
+<li>原来的请求都将失效</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变化</th>
+<th style="text-align:center">开启前</th>
+<th style="text-align:left">开启后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">url</td>
+<td style="text-align:center"><a href="http://192.168.1.121:8080/#!/mine" target="_blank" rel="noopener">http://192.168.1.121:8080/#!/mine</a></td>
+<td style="text-align:left">5<a href="http://192.168.1.121:8080/mine" target="_blank" rel="noopener">http://192.168.1.121:8080/mine</a></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">必须含有#！</td>
+<td style="text-align:left">不包含#！</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>main.js</code></td>
+<td style="text-align:center"><code>var router = new VueRouter()</code></td>
+<td style="text-align:left"><code>var router = new VueRouter({hashbang:true,history: true,saveScrollPosition: true,transitionOnLoad: true})</code></td>
+</tr>
+<tr>
+<td style="text-align:center">history</td>
+<td style="text-align:center">不开启</td>
+<td style="text-align:left">开启</td>
+</tr>
+<tr>
+<td style="text-align:center">scroll</td>
+<td style="text-align:center">不记录位置信息</td>
+<td style="text-align:left">记录位置信息</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yuluhuang.github.io/2016/04/10/vue/" data-id="cjso2qz4u000ydn31bekjqzs3" class="article-share-link">Share</a>
+      
+        <a href="http://yuluhuang.github.io/2016/04/10/vue/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-持续更新/">vue[持续更新]</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/10/07/ssl-tls/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          https ssl/tls
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/19/Hexo使用攻略/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hexo使用攻略</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a><span class="category-list-count">26</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/">ReactJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular2/">angular2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/e2e/">e2e</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ebook/">ebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/echarts/">echarts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elasticsearch/">elasticsearch</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mean/">mean</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/">mongo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ng2/">ng2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/">requirejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solr/">solr</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/">ssl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tls/">tls</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/">vpn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-持续更新/">vue[持续更新]</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weixin/">weixin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zookeeper/">zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻譯/">翻譯</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ReactJS/" style="font-size: 10px;">ReactJS</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/auth/" style="font-size: 10px;">auth</a> <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/e2e/" style="font-size: 10px;">e2e</a> <a href="/tags/ebook/" style="font-size: 10px;">ebook</a> <a href="/tags/echarts/" style="font-size: 10px;">echarts</a> <a href="/tags/elasticsearch/" style="font-size: 13.33px;">elasticsearch</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/kafka/" style="font-size: 10px;">kafka</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mean/" style="font-size: 10px;">mean</a> <a href="/tags/mongo/" style="font-size: 13.33px;">mongo</a> <a href="/tags/mongodb/" style="font-size: 13.33px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ng2/" style="font-size: 10px;">ng2</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nosql/" style="font-size: 10px;">nosql</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a> <a href="/tags/solr/" style="font-size: 13.33px;">solr</a> <a href="/tags/ssh/" style="font-size: 13.33px;">ssh</a> <a href="/tags/ssl/" style="font-size: 10px;">ssl</a> <a href="/tags/tls/" style="font-size: 10px;">tls</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue-持续更新/" style="font-size: 10px;">vue[持续更新]</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/翻譯/" style="font-size: 10px;">翻譯</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/28/Deploying-ReactJS-With-Docker/">Deploying ReactJS With Docker</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/28/elasticsearch-kafka-zookeeper-frp-案例/">elasticsearch + kafka + zookeeper + frp 案例</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/28/通过-nginx-配置基本的安全验证/">通过 nginx 配置基本的安全验证</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/28/mysql-with-docker/">mysql with docker</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/14/docker-使用场景之测试/">docker 使用场景之测试</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 luhuang yu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/index.html" class="mobile-nav-link">about</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'yuluhuanghexo';
+  
+  var disqus_url = 'http://yuluhuang.github.io/2016/04/10/vue/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

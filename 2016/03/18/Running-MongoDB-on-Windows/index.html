@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  
+  <title>Running MongoDB on Windows | 只做一件事, 做好一件事, 做正确的事</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="将mongo安装在非系统盘我不久前使用MongoDB，根据development box从官网下载MongoDB，按照自己的需求下载不同版本，我下载的是 64-bit Zip文件。 .msi文件是安装到Program Files目录下的（默认），但是我更喜欢把安装文件（zip包）和数据库文件（创建数据库后生成）放在一起使而且不必使用Admin运行. 取出zip文件放到 c:\MongoDB 进入">
+<meta name="keywords" content="mongodb,nosql,windows,翻譯">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Running MongoDB on Windows">
+<meta property="og:url" content="http://yuluhuang.github.io/2016/03/18/Running-MongoDB-on-Windows/index.html">
+<meta property="og:site_name" content="只做一件事, 做好一件事, 做正确的事">
+<meta property="og:description" content="将mongo安装在非系统盘我不久前使用MongoDB，根据development box从官网下载MongoDB，按照自己的需求下载不同版本，我下载的是 64-bit Zip文件。 .msi文件是安装到Program Files目录下的（默认），但是我更喜欢把安装文件（zip包）和数据库文件（创建数据库后生成）放在一起使而且不必使用Admin运行. 取出zip文件放到 c:\MongoDB 进入">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-28T03:19:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Running MongoDB on Windows">
+<meta name="twitter:description" content="将mongo安装在非系统盘我不久前使用MongoDB，根据development box从官网下载MongoDB，按照自己的需求下载不同版本，我下载的是 64-bit Zip文件。 .msi文件是安装到Program Files目录下的（默认），但是我更喜欢把安装文件（zip包）和数据库文件（创建数据库后生成）放在一起使而且不必使用Admin运行. 取出zip文件放到 c:\MongoDB 进入">
+  
+    <link rel="alternative" href="/atom.xml" title="只做一件事, 做好一件事, 做正确的事" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+
+      <link type=“text/plain” rel=“author” href=“humans.txt” />
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">只做一件事, 做好一件事, 做正确的事</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Continuous development，not episodic</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about/index.html">about</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yuluhuang.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Running-MongoDB-on-Windows" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/18/Running-MongoDB-on-Windows/" class="article-date">
+  <time datetime="2016-03-18T06:38:40.000Z" itemprop="datePublished">2016-03-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Running MongoDB on Windows
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="将mongo安装在非系统盘"><a href="#将mongo安装在非系统盘" class="headerlink" title="将mongo安装在非系统盘"></a>将mongo安装在非系统盘</h2><p>我不久前使用<code>MongoDB</code>，根据<code>development box</code><br>从官网下载MongoDB，按照自己的需求下载不同版本，我下载的是 64-bit Zip文件。 .msi文件是安装到<code>Program Files</code>目录下的（默认），但是我更喜欢把安装文件（zip包）和数据库文件（创建数据库后生成）放在一起使而且不必使用Admin运行.</p>
+<p>取出zip文件放到 <code>c:\MongoDB</code></p>
+<p>进入 <code>c:\MongoDB</code>，创建一个<code>data</code>子目录，进入并创建<code>db</code>子文件夹和<code>log</code>子文件夹，<code>bin</code>文件夹已经存在，最后<br>你的文件夹结构如下，</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">c:<span class="string">\mongodb</span></span><br><span class="line">    <span class="string">\bin</span></span><br><span class="line">    <span class="string">\data</span></span><br><span class="line">        <span class="string">\db</span></span><br><span class="line">        <span class="string">\log</span></span><br></pre></td></tr></table></figure>
+<h2 id="配置-MongoDB"><a href="#配置-MongoDB" class="headerlink" title="配置 MongoDB"></a>配置 MongoDB</h2><p>添加一个文件  <code>c:\MongoDB\mongod.cfg</code>包含以下内容</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">systemLog:</span></span><br><span class="line"><span class="attr">   destination:</span> <span class="string">file</span></span><br><span class="line"><span class="attr">   path:</span> <span class="attr">c:\mongodb\data\log\mongodb.log</span></span><br><span class="line"><span class="attr">   logAppend:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">storage:</span></span><br><span class="line"><span class="attr">    dbPath:</span> <span class="attr">c:\mongodb\data\db</span></span><br><span class="line"><span class="attr">net:</span></span><br><span class="line"><span class="attr">   bindIp:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line"><span class="attr">   port:</span> <span class="number">27017</span></span><br></pre></td></tr></table></figure>
+<p><code>log</code>和<code>db</code>的路径还有端口号都是默认，需要改变也很容易。注意<code>ip</code>只绑定<code>127.0.0.1</code>，因为那是不安全的，所以我不想暴露在network上，更多配置选项 see the documentation.</p>
+<h2 id="测试MongoDB"><a href="#测试MongoDB" class="headerlink" title="测试MongoDB"></a>测试<code>MongoDB</code></h2><p>运行以下命令</p>
+<p><code>C:\MongoDb\bin&gt;mongod.exe -f ..\mongod.cfg</code><br>然后在另一个 <code>command window（win+R）</code>，运行服务确定他能成功运行。</p>
+<p>当我<code>connecting</code>时出现以下错误，所以我关闭了服务</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">c:</span>\MongoDb\bin&gt;mongo</span><br><span class="line">MongoDB shell version: <span class="number">2.6</span><span class="meta">.1</span></span><br><span class="line">connecting to: <span class="keyword">test</span></span><br><span class="line">&gt; use admin</span><br><span class="line">switched to <span class="built_in">db</span> admin</span><br><span class="line">&gt; <span class="built_in">db</span>.shutdownServer()</span><br><span class="line"><span class="number">2014</span>-<span class="number">06</span>-10T14:<span class="number">28</span>:<span class="number">35.567</span>-<span class="number">0400</span> DBClientCursor::init <span class="keyword">call</span>() failed</span><br><span class="line">server should be <span class="meta">down</span>...</span><br><span class="line"><span class="number">2014</span>-<span class="number">06</span>-10T14:<span class="number">28</span>:<span class="number">35.571</span>-<span class="number">0400</span> trying reconnect to <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">27017</span> (<span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>) failed</span><br><span class="line"><span class="number">2014</span>-<span class="number">06</span>-10T14:<span class="number">28</span>:<span class="number">36.579</span>-<span class="number">0400</span> warning: Failed to connect to <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">27017</span>, reason: errno:<span class="number">10061</span> No connection could be made because the target machine actively refused it.</span><br><span class="line"><span class="number">2014</span>-<span class="number">06</span>-10T14:<span class="number">28</span>:<span class="number">36.579</span>-<span class="number">0400</span> reconnect <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">27017</span> (<span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>) failed failed couldn<span class="string">'t connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed</span></span><br><span class="line"><span class="string">&gt; exit</span></span><br><span class="line"><span class="string">bye</span></span><br></pre></td></tr></table></figure>
+<h2 id="将其作为一个service安装"><a href="#将其作为一个service安装" class="headerlink" title="将其作为一个service安装"></a>将其作为一个<code>service</code>安装</h2><p>我们现在知道我们的配置是正确的，所以我想去安装一个<code>service</code>让他总是运行</p>
+<p>启动一个 <code>Administrator command prompt</code>（拥有管理员权限）</p>
+<p><code>win7 ：win+R  进入cmd ，之后按住 CTRL+SHIFT+ENTER</code></p>
+<p><code>win8：WIN+X 之后按A</code></p>
+<p>现在运行命令</p>
+<p><code>sc.exe create MongoDB binPath=&quot;C:\MongoDB\bin\mongod.exe --service --config=C:\MongoDB\mongod.cfg&quot; DisplayName=&quot;MongoDB 2.6 Standard&quot; start=&quot;auto&quot;</code><br>你应该看到</p>
+<p><code>[SC] CreateService SUCCESS</code><br>现在你可以根据以下命令开启和关闭服务（如果不能启动，手动开启服务 任务管理器-服务）</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> MongoDB</span><br><span class="line"><span class="built_in">net</span> stop MongoDB</span><br></pre></td></tr></table></figure>
+<p>如果你想卸载服务</p>
+<p><code>sc.exe delete MongoDB</code></p>
+<p><a href="http://www.alteridem.net/2014/06/10/running-mongodb-on-windows/" target="_blank" rel="noopener">原文连接</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yuluhuang.github.io/2016/03/18/Running-MongoDB-on-Windows/" data-id="cjso2qz3u0008dn31xec29rwr" class="article-share-link">Share</a>
+      
+        <a href="http://yuluhuang.github.io/2016/03/18/Running-MongoDB-on-Windows/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nosql/">nosql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/翻譯/">翻譯</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/19/grunt-requirejs-angularjs/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          grunt+requirejs+angularjs
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/17/hexo搭建转载/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hexo搭建转载</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a><span class="category-list-count">26</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/">ReactJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular2/">angular2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/e2e/">e2e</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ebook/">ebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/echarts/">echarts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elasticsearch/">elasticsearch</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mean/">mean</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/">mongo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ng2/">ng2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/">requirejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solr/">solr</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/">ssl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tls/">tls</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/">vpn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-持续更新/">vue[持续更新]</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weixin/">weixin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zookeeper/">zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻譯/">翻譯</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ReactJS/" style="font-size: 10px;">ReactJS</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/auth/" style="font-size: 10px;">auth</a> <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/e2e/" style="font-size: 10px;">e2e</a> <a href="/tags/ebook/" style="font-size: 10px;">ebook</a> <a href="/tags/echarts/" style="font-size: 10px;">echarts</a> <a href="/tags/elasticsearch/" style="font-size: 13.33px;">elasticsearch</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/kafka/" style="font-size: 10px;">kafka</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mean/" style="font-size: 10px;">mean</a> <a href="/tags/mongo/" style="font-size: 13.33px;">mongo</a> <a href="/tags/mongodb/" style="font-size: 13.33px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ng2/" style="font-size: 10px;">ng2</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nosql/" style="font-size: 10px;">nosql</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a> <a href="/tags/solr/" style="font-size: 13.33px;">solr</a> <a href="/tags/ssh/" style="font-size: 13.33px;">ssh</a> <a href="/tags/ssl/" style="font-size: 10px;">ssl</a> <a href="/tags/tls/" style="font-size: 10px;">tls</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue-持续更新/" style="font-size: 10px;">vue[持续更新]</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/翻譯/" style="font-size: 10px;">翻譯</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/28/Deploying-ReactJS-With-Docker/">Deploying ReactJS With Docker</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/28/elasticsearch-kafka-zookeeper-frp-案例/">elasticsearch + kafka + zookeeper + frp 案例</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/28/通过-nginx-配置基本的安全验证/">通过 nginx 配置基本的安全验证</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/28/mysql-with-docker/">mysql with docker</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/14/docker-使用场景之测试/">docker 使用场景之测试</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 luhuang yu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/index.html" class="mobile-nav-link">about</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'yuluhuanghexo';
+  
+  var disqus_url = 'http://yuluhuang.github.io/2016/03/18/Running-MongoDB-on-Windows/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

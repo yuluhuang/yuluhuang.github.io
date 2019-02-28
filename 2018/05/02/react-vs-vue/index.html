@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  
+  <title>react vs vue | 只做一件事, 做好一件事, 做正确的事</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="谷歌趋势 介绍vue 由尤雨溪 全职开发react 由Facebook 开发共同点 支持虚拟dom 支持组件化开发 支付单页面应用（spa） 支持服务端渲染  差异    学习曲线 模板 star     react 高 jsx 92.8K   vue 底 html 94.8k       vue属于mvvm框架，支持双向绑定 vue可以单独引入作为库使用 vue官方维护cli脚手架，自动构建项目">
+<meta name="keywords" content="vue,react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react vs vue">
+<meta property="og:url" content="http://yuluhuang.github.io/2018/05/02/react-vs-vue/index.html">
+<meta property="og:site_name" content="只做一件事, 做好一件事, 做正确的事">
+<meta property="og:description" content="谷歌趋势 介绍vue 由尤雨溪 全职开发react 由Facebook 开发共同点 支持虚拟dom 支持组件化开发 支付单页面应用（spa） 支持服务端渲染  差异    学习曲线 模板 star     react 高 jsx 92.8K   vue 底 html 94.8k       vue属于mvvm框架，支持双向绑定 vue可以单独引入作为库使用 vue官方维护cli脚手架，自动构建项目">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yuluhuang.github.io/img/7D08E09D-41CA-4A5A-B70E-4363263B4C68.png">
+<meta property="og:image" content="http://yuluhuang.github.io/img/0F585F21-929F-4225-82F2-73763D1E5879.png">
+<meta property="og:image" content="http://yuluhuang.github.io/img/6B197ACD-98AC-4C51-8A24-7F604A55E666.png">
+<meta property="og:updated_time" content="2019-02-28T03:19:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react vs vue">
+<meta name="twitter:description" content="谷歌趋势 介绍vue 由尤雨溪 全职开发react 由Facebook 开发共同点 支持虚拟dom 支持组件化开发 支付单页面应用（spa） 支持服务端渲染  差异    学习曲线 模板 star     react 高 jsx 92.8K   vue 底 html 94.8k       vue属于mvvm框架，支持双向绑定 vue可以单独引入作为库使用 vue官方维护cli脚手架，自动构建项目">
+<meta name="twitter:image" content="http://yuluhuang.github.io/img/7D08E09D-41CA-4A5A-B70E-4363263B4C68.png">
+  
+    <link rel="alternative" href="/atom.xml" title="只做一件事, 做好一件事, 做正确的事" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+
+      <link type=“text/plain” rel=“author” href=“humans.txt” />
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">只做一件事, 做好一件事, 做正确的事</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Continuous development，not episodic</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about/index.html">about</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yuluhuang.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-react-vs-vue" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/02/react-vs-vue/" class="article-date">
+  <time datetime="2018-05-02T07:45:09.000Z" itemprop="datePublished">2018-05-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      react vs vue
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="谷歌趋势"><a href="#谷歌趋势" class="headerlink" title="谷歌趋势"></a>谷歌趋势</h2><p><img src="/img/7D08E09D-41CA-4A5A-B70E-4363263B4C68.png" alt="vue"></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="vue-由尤雨溪-全职开发"><a href="#vue-由尤雨溪-全职开发" class="headerlink" title="vue 由尤雨溪 全职开发"></a>vue 由尤雨溪 全职开发</h3><h3 id="react-由Facebook-开发"><a href="#react-由Facebook-开发" class="headerlink" title="react 由Facebook 开发"></a>react 由Facebook 开发</h3><h2 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h2><ul>
+<li>支持虚拟dom</li>
+<li>支持组件化开发</li>
+<li>支付单页面应用（spa）</li>
+<li>支持服务端渲染</li>
+</ul>
+<h2 id="差异"><a href="#差异" class="headerlink" title="差异"></a>差异</h2><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">学习曲线</th>
+<th style="text-align:center">模板</th>
+<th style="text-align:center">star</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">react</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">jsx</td>
+<td style="text-align:center">92.8K</td>
+</tr>
+<tr>
+<td style="text-align:center">vue</td>
+<td style="text-align:center">底</td>
+<td style="text-align:center">html</td>
+<td style="text-align:center">94.8k</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><img src="/img/0F585F21-929F-4225-82F2-73763D1E5879.png" alt="vue"><br><img src="/img/6B197ACD-98AC-4C51-8A24-7F604A55E666.png" alt="vue"></p>
+<ul>
+<li>vue属于mvvm框架，支持双向绑定</li>
+<li>vue可以单独引入作为库使用</li>
+<li>vue官方维护cli脚手架，自动构建项目，对于中小型快速开发极其有利，大型项目也可以以此为基础</li>
+<li>react 常见的 <code>creact-react-app</code> 脚手架可以创建一个基础项目，个人开源脚手架繁杂，没用官方统一的解决方案</li>
+<li>react 一开始只支持es6, 之后也可以单独使用不过要引入react-dom来解析</li>
+<li>由于react 专注于 view 层，属于单向绑定，todo 为例 react的代码量往往大于vue</li>
+</ul>
+<h2 id="状态管理和数据绑定"><a href="#状态管理和数据绑定" class="headerlink" title="状态管理和数据绑定"></a>状态管理和数据绑定</h2><ul>
+<li>Vue 官方推荐 vuex</li>
+<li>React 常见 redux，mobx, 因为react社区活跃，衍生出各个库，所有没有统一公认的解决方案</li>
+</ul>
+<h2 id="ui"><a href="#ui" class="headerlink" title="ui"></a>ui</h2><p>vue</p>
+<ul>
+<li>Element UI</li>
+</ul>
+<p>React</p>
+<ul>
+<li>Ant design<h2 id="移动端"><a href="#移动端" class="headerlink" title="移动端"></a>移动端</h2></li>
+<li>Vue 有 weex 诟病多</li>
+<li>React 有 react-native 被多数公司采用的移动方案</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yuluhuang.github.io/2018/05/02/react-vs-vue/" data-id="cjso2qz4r000wdn31rbwvgbrm" class="article-share-link">Share</a>
+      
+        <a href="http://yuluhuang.github.io/2018/05/02/react-vs-vue/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/09/14/MongoDB-读写分离之主从配置/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          MongoDB 读写分离之主从配置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/28/MySQL运算符介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MySQL运算符介绍</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a><span class="category-list-count">26</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/">ReactJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular2/">angular2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/e2e/">e2e</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ebook/">ebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/echarts/">echarts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elasticsearch/">elasticsearch</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mean/">mean</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/">mongo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ng2/">ng2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/">requirejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solr/">solr</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/">ssl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tls/">tls</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/">vpn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-持续更新/">vue[持续更新]</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weixin/">weixin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zookeeper/">zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻譯/">翻譯</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ReactJS/" style="font-size: 10px;">ReactJS</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/auth/" style="font-size: 10px;">auth</a> <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/e2e/" style="font-size: 10px;">e2e</a> <a href="/tags/ebook/" style="font-size: 10px;">ebook</a> <a href="/tags/echarts/" style="font-size: 10px;">echarts</a> <a href="/tags/elasticsearch/" style="font-size: 13.33px;">elasticsearch</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/kafka/" style="font-size: 10px;">kafka</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mean/" style="font-size: 10px;">mean</a> <a href="/tags/mongo/" style="font-size: 13.33px;">mongo</a> <a href="/tags/mongodb/" style="font-size: 13.33px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ng2/" style="font-size: 10px;">ng2</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nosql/" style="font-size: 10px;">nosql</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a> <a href="/tags/solr/" style="font-size: 13.33px;">solr</a> <a href="/tags/ssh/" style="font-size: 13.33px;">ssh</a> <a href="/tags/ssl/" style="font-size: 10px;">ssl</a> <a href="/tags/tls/" style="font-size: 10px;">tls</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue-持续更新/" style="font-size: 10px;">vue[持续更新]</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/翻譯/" style="font-size: 10px;">翻譯</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/28/Deploying-ReactJS-With-Docker/">Deploying ReactJS With Docker</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/28/elasticsearch-kafka-zookeeper-frp-案例/">elasticsearch + kafka + zookeeper + frp 案例</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/28/通过-nginx-配置基本的安全验证/">通过 nginx 配置基本的安全验证</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/28/mysql-with-docker/">mysql with docker</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/14/docker-使用场景之测试/">docker 使用场景之测试</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 luhuang yu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/index.html" class="mobile-nav-link">about</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'yuluhuanghexo';
+  
+  var disqus_url = 'http://yuluhuang.github.io/2018/05/02/react-vs-vue/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

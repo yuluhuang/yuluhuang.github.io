@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  
+  <title>只做一件事, 做好一件事, 做正确的事</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="yuluhuang的博客网站">
+<meta property="og:type" content="website">
+<meta property="og:title" content="只做一件事, 做好一件事, 做正确的事">
+<meta property="og:url" content="http://yuluhuang.github.io/page/2/index.html">
+<meta property="og:site_name" content="只做一件事, 做好一件事, 做正确的事">
+<meta property="og:description" content="yuluhuang的博客网站">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="只做一件事, 做好一件事, 做正确的事">
+<meta name="twitter:description" content="yuluhuang的博客网站">
+  
+    <link rel="alternative" href="/atom.xml" title="只做一件事, 做好一件事, 做正确的事" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+
+      <link type=“text/plain” rel=“author” href=“humans.txt” />
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">只做一件事, 做好一件事, 做正确的事</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Continuous development，not episodic</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about/index.html">about</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yuluhuang.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-echarts-map" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/23/echarts-map/" class="article-date">
+  <time datetime="2018-03-23T03:28:34.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/23/echarts-map/">echarts-map</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><h3 id="西秀地图"><a href="#西秀地图" class="headerlink" title="西秀地图"></a>西秀地图</h3><blockquote>
+<p>行政区域：乡镇（16）<br>区域颜色：蓝色（深浅代表产量）<br>合作社标识：黄色气泡 鼠标停留在合作社气泡，可以显示信息列表</p>
+</blockquote>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ol>
+<li>echarts 支持省市区规划, 乡镇及以下不支持</li>
+<li>ECharts 地图数据在线生成工具 <a href="http://ecomfe.github.io/echarts-map-tool/" target="_blank" rel="noopener">http://ecomfe.github.io/echarts-map-tool/</a><br>已不支持矢量地图数据下载, 需自己采点绘图</li>
+</ol>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><ol>
+<li>通过百度地图采点</li>
+<li>通过 echarts 绘图</li>
+</ol>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>采点工具<br><img src="/img/echarts-map.png" alt="图例"></p>
+<p>最终效果<br><img src="http://7ls06l.com1.z0.glb.clouddn.com/B60B1F6F-299C-4AB3-AB46-E5549A1B8C7E.png" alt="图例"></p>
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p><a href="https://github.com/yuluhuang/echarts-map" target="_blank" rel="noopener">github</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>内部公共点只使用同一份, 切勿重复取点</li>
+<li>耐心, 取点疏密决定分区线细腻度, 本例比较粗糙</li>
+<li>取完点绘图时可能有瑕疵, 对于有瑕疵区域最好重新采点</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yuluhuang.github.io/2018/03/23/echarts-map/" data-id="cjso2qz4a000fdn31rlqq7w6q" class="article-share-link">Share</a>
+      
+        <a href="http://yuluhuang.github.io/2018/03/23/echarts-map/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/echarts/">echarts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/map/">map</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-deep-and-shallow-copy-js" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/06/deep-and-shallow-copy-js/" class="article-date">
+  <time datetime="2018-03-06T07:31:42.000Z" itemprop="datePublished">2018-03-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/06/deep-and-shallow-copy-js/">deep_and_shallow_copy_js</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>深拷贝可以理解为递归进行浅拷贝。</li>
+<li>简单来说，浅复制只复制一层对象的属性，而深复制则递归复制了所有层级</li>
+</ol>
+<h2 id="浅拷贝实现"><a href="#浅拷贝实现" class="headerlink" title="浅拷贝实现"></a>浅拷贝实现</h2><p>1.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowClone</span> (<span class="params">copyObj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> copyObj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (copyObj.hasOwnProperty(prop)) &#123;</span><br><span class="line">        obj[prop] = copyObj[prop]</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li><p>Object.assign()</p>
+</li>
+<li><p>Array的slice和concat方法</p>
+<ul>
+<li>它看起来像是深拷贝。而实际上它是浅拷贝: 如果该元素是个对象引用, 两个对象引用都引用了同一个对象, 所以会同变</li>
+<li>如果向两个数组任一中添加了新元素，则另一个不会受到影响</li>
+</ul>
+</li>
+</ol>
+<h2 id="深拷贝的实现"><a href="#深拷贝的实现" class="headerlink" title="深拷贝的实现"></a>深拷贝的实现</h2><ol>
+<li>对于字符串、数字及布尔值来说 没有深浅之分</li>
+<li><p>JSON对象的parse和stringify<br> <code>JSON.parse(JSON.stringify(source))</code><br> 这种方法使用较为简单，可以满足基本的深拷贝需求，而且能够处理JSON格式能表示的所有数据类型，<br> 但是对于正则表达式类型、函数类型等无法进行深拷贝(而且会直接丢失)。还有一点不好的地方是它会抛弃对象的constructor。也就是深拷贝之后，不管这个对象原来的构造函数是什么，在深拷贝之后都会变成Object。同时如果对象中存在循环引用的情况也无法正确处理。</p>
+</li>
+<li><p>Object.create(source)</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copy</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    &#125;;</span><br><span class="line">    F.prototype = obj;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 是在方法内部创建了一个 function 原型指向传入的 old对象，再返回一个 function 实例，也就是拷贝出来的值，所以添加改变实例属性不会影响原型，但是修改 old 对象的属性值，也就是改变了实例的原型属性，新的对象的所有属性都是继承自 old 对象，自然会跟着变</p>
+</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://github.com/wengjq/Blog/issues/3" target="_blank" rel="noopener">https://github.com/wengjq/Blog/issues/3</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yuluhuang.github.io/2018/03/06/deep-and-shallow-copy-js/" data-id="cjso2qz3z000adn31xwadf09p" class="article-share-link">Share</a>
+      
+        <a href="http://yuluhuang.github.io/2018/03/06/deep-and-shallow-copy-js/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-内网穿透实践" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/28/内网穿透实践/" class="article-date">
+  <time datetime="2018-01-28T13:20:45.000Z" itemprop="datePublished">2018-01-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/28/内网穿透实践/">内网穿透实践</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#需求<br>大多数情况下我们使用的ip都属于动态分配ip,<br>如果有一个静态ip, 就可以做很多事</p>
+<ol>
+<li>场景一<br>将自己的电脑变成服务器, 可以有无限大的资源</li>
+<li>场景二<br>通过ssh远程控制自己的电脑, 将自己本机作为跳板, 非常方便</li>
+<li>场景三<br>给客户直接做展示, 打开连接直接连到本机, 安全方便快捷</li>
+<li>自己脑补</li>
+</ol>
+<ol>
+<li>我找到了ngrok</li>
+<li>localtunnel 可行</li>
+<li>pagekite</li>
+</ol>
+<h2 id="ngrok-已闭源-收费"><a href="#ngrok-已闭源-收费" class="headerlink" title="ngrok (已闭源, 收费)"></a>ngrok (已闭源, 收费)</h2><p>npm install ngrok -g<br>ngrok http 8080<br>ngrok http -subdomain=yuluhuang 9999</p>
+<h2 id="localtunnel-第三方都不太稳定"><a href="#localtunnel-第三方都不太稳定" class="headerlink" title="localtunnel (第三方都不太稳定)"></a>localtunnel (第三方都不太稳定)</h2><p>###官网 <a href="http://localtunnel.me/" target="_blank" rel="noopener">http://localtunnel.me/</a></p>
+<p>###使用</p>
+<ol>
+<li>npm install -g localtunnel</li>
+<li>lt –port 8000 //lt –help<br>or lt –subdomain yuluhuang –port 8888</li>
+</ol>
+<h2 id="pagekite（有限制）"><a href="#pagekite（有限制）" class="headerlink" title="pagekite（有限制）"></a>pagekite（有限制）</h2><p>###官网 <a href="https://pagekite.net/" target="_blank" rel="noopener">https://pagekite.net/</a></p>
+<ol>
+<li>下载py文件</li>
+<li>双击运行</li>
+</ol>
+<h2 id="frp-以上都不具实用性"><a href="#frp-以上都不具实用性" class="headerlink" title="frp (以上都不具实用性)"></a>frp (以上都不具实用性)</h2><p>因为工作需要使用到内网穿透，让远程用户直接访问本地，查看最终效果<br>之前使用过ngrok, localtunnel, pagekite, 要么不能用，要么不好用，自己部署也很复杂<br>看到又一款穿透工具 介绍 <a href="http://www.sunnyrx.com/2016/10/21/simple-to-use-frp/" target="_blank" rel="noopener">http://www.sunnyrx.com/2016/10/21/simple-to-use-frp/</a> ,<br>官方文档： <a href="https://github.com/fatedier/frp/blob/master/README_zh.md" target="_blank" rel="noopener">https://github.com/fatedier/frp/blob/master/README_zh.md</a><br>就自己部署了一遍， 发现还是可行的 中文文档也比较详细，我在记录一遍</p>
+<p>前提: 你需要一台自己的服务器</p>
+<ol>
+<li>在客户端和服务器端下载安装包<br>|-frpc // 客户端<br>|-frpc.ini // 客户端配置文件<br>|-frps // 服务端<br>|-frps.ini // 服务端配置文件</li>
+</ol>
+<ol start="2">
+<li>配置</li>
+</ol>
+<p>frpc.ini<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = x.x.x.x # 服务端ip</span><br><span class="line">server_port = 7000 # 端口, 记得打开</span><br><span class="line"></span><br><span class="line">[ssh]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 6000</span><br><span class="line"></span><br><span class="line">[http_proxy]</span><br><span class="line">type = tcp</span><br><span class="line">remote_port = 5000</span><br><span class="line">plugin = http_proxy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[web]</span><br><span class="line">type = http</span><br><span class="line">local_port = 8109 # 本地应用使用端口</span><br><span class="line">custom_domains = www.blibao.shop # 解析到服务端的域名， 客户端访问 www.blibao.shop:8080即可访问到本地应用，8080需在服务端配置文件中配置</span><br></pre></td></tr></table></figure></p>
+<p>frps.ini<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">bind_port</span> = <span class="number">7000</span></span><br><span class="line"><span class="attr">vhost_http_port</span> = <span class="number">8080</span></span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li>启动<br>使用screen让frp在后台运行<br>下面的示范是运行服务端的frp，客户端就不示范了，前面提过群晖的系统没有screen指令。</li>
+</ol>
+<p>首先使用screen指令创建一个会话。</p>
+<p>screen -dmS frp<br>然后进入这个会话。</p>
+<p>screen -r frp<br>最后使用运行frp的指令，在后面加上” &amp;”。（如果之前断开了SSH连接，记得用cd指令进入frp的目录先。）</p>
+<p>./frps -c ./frps.ini &amp;<br>这样就让frp在后台运行了。</p>
+<ol start="4">
+<li>配置ssh连接本机<br>frpc.ini<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[ssh]</span></span><br><span class="line"><span class="attr">type</span> = tcp</span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">auth_token</span> = <span class="number">123</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">22</span></span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">6000</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>frps.ini<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[ssh]</span><br><span class="line">type = tcp</span><br><span class="line">auth_token = 123</span><br><span class="line">bind_addr = 0.0.0.0</span><br><span class="line">listen_port = 6000</span><br></pre></td></tr></table></figure></p>
+<p>mac 在共享中打开允许远程连接，设置用户<br>ssh <a href="mailto:root@x.x.x.x" target="_blank" rel="noopener">root@x.x.x.x</a> -p 6000</p>
+<h1 id="场景1"><a href="#场景1" class="headerlink" title="场景1"></a>场景1</h1><p>利用frp主从备份mongo数据库</p>
+<h1 id="场景2"><a href="#场景2" class="headerlink" title="场景2"></a>场景2</h1><p>利用frp 副本集 mongo数据库(同理)</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ol>
+<li>对架设frps的服务器要求高，不适合同时架设过多连接，大流量容易堵塞，可用于小网站或搭建远程测试环境</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yuluhuang.github.io/2018/01/28/内网穿透实践/" data-id="cjso2qz510019dn31yt8f9bx5" class="article-share-link">Share</a>
+      
+        <a href="http://yuluhuang.github.io/2018/01/28/内网穿透实践/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frp/">frp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vpn/">vpn</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ng2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/27/ng2/" class="article-date">
+  <time datetime="2016-10-27T13:28:10.000Z" itemprop="datePublished">2016-10-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/27/ng2/">ng2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><ol>
+<li><p>Unhandled Promise rejection: No base href set. Please provide a value for the APP_BASE_HREF</p>
+<p>页面添加 <base href="/"></p>
+<ol start="2">
+<li>httpService 自定义 需要在 app.component.ts 声明<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; HttpService &#125; <span class="keyword">from</span> <span class="string">'./httpService'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(&#123;</span><br><span class="line">  moduleId: <span class="built_in">module</span>.id,</span><br><span class="line">  selector: <span class="string">'app-root'</span>,</span><br><span class="line">  providers: [HttpService]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppComponent &#123;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yuluhuang.github.io/2016/10/27/ng2/" data-id="cjso2qz4q000udn318aqws5r7" class="article-share-link">Share</a>
+      
+        <a href="http://yuluhuang.github.io/2016/10/27/ng2/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular2/">angular2</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-weixin" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/27/weixin/" class="article-date">
+  <time datetime="2016-10-27T04:01:29.000Z" itemprop="datePublished">2016-10-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/27/weixin/">weixin</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>微信营销<br>以用户为中心，处处为用户着想<br>避免资源浪费/资源合理运用/任何xx都是资源，任何资源都是有价值的</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yuluhuang.github.io/2016/10/27/weixin/" data-id="cjso2qz4w0012dn31sctm4oem" class="article-share-link">Share</a>
+      
+        <a href="http://yuluhuang.github.io/2016/10/27/weixin/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/weixin/">weixin</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mean-tasklist" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/23/mean-tasklist/" class="article-date">
+  <time datetime="2016-10-23T12:58:22.000Z" itemprop="datePublished">2016-10-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/23/mean-tasklist/">mean-tasklist</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ol>
+<li>nodejs</li>
+<li><a href="http://yuluhuang.github.io/2016/03/18/Running-MongoDB-on-Windows/">mongo</a></li>
+</ol>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">|-client</span></span><br><span class="line">    <span class="string">|-app</span></span><br><span class="line">        <span class="string">|-components</span></span><br><span class="line">            <span class="string">|-task</span></span><br><span class="line">                <span class="string">|-tasks.component.html</span></span><br><span class="line">                <span class="string">|-tasks.components.ts</span></span><br><span class="line">            <span class="string">|-services</span></span><br><span class="line">                <span class="string">|-task.services.ts</span></span><br><span class="line">            <span class="string">|-app.component.html</span></span><br><span class="line">            <span class="string">|-app.component.ts</span></span><br><span class="line">            <span class="string">|-app.module.ts</span></span><br><span class="line">            <span class="string">|-main.ts</span></span><br><span class="line">        <span class="string">|-bower_components</span></span><br><span class="line">        <span class="string">|-node_modules</span></span><br><span class="line">        <span class="string">|-typings</span></span><br><span class="line">        <span class="string">|-package.json</span></span><br><span class="line">        <span class="string">|-systemjs.config.js</span></span><br><span class="line">        <span class="string">|-Task.ts</span></span><br><span class="line">        <span class="string">|-tsconfig.json</span></span><br><span class="line">        <span class="string">|-typings.json</span></span><br><span class="line">    <span class="string">|-node_modules</span></span><br><span class="line">    <span class="string">|-routes</span></span><br><span class="line">        <span class="string">|-index.js</span></span><br><span class="line">        <span class="string">|-tasks.js</span></span><br><span class="line">    <span class="string">|-views</span></span><br><span class="line">        <span class="string">|-index.html</span></span><br><span class="line">    <span class="string">|-.bowerrc</span></span><br><span class="line">    <span class="string">|-package.json</span></span><br><span class="line">    <span class="string">|-server.js</span></span><br></pre></td></tr></table></figure>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h2><ol>
+<li>cd tasklist &amp;&amp; npm init #创建项目</li>
+<li>npm install mongojs express ejs body-parser –save</li>
+<li>touch server.js</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> index = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);</span><br><span class="line"><span class="keyword">var</span> tasks = <span class="built_in">require</span>(<span class="string">'./routes/tasks'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> port = <span class="number">3000</span>;</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line">app.set(<span class="string">'views'</span>, path.join(__dirname, <span class="string">'views'</span>));</span><br><span class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'ejs'</span>);</span><br><span class="line">app.engine(<span class="string">'html'</span>, <span class="built_in">require</span>(<span class="string">'ejs'</span>).renderFile);</span><br><span class="line"></span><br><span class="line">app.use(express.static(path.join(__dirname, <span class="string">'client'</span>)));</span><br><span class="line">app.use(bodyParser.json());</span><br><span class="line">app.use(bodyParser.urlencoded(&#123;<span class="attr">extended</span>: <span class="literal">false</span>&#125;));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app.use(<span class="string">'/'</span>, index);</span><br><span class="line">app.use(<span class="string">'/api'</span>, tasks);</span><br><span class="line"></span><br><span class="line">app.listen(port, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Server started on port'</span> + port)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>mkdir routes &amp;&amp; cd routes</li>
+<li>touch index.js</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">var</span> router = express.Router();</span><br><span class="line"></span><br><span class="line">router.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    res.render(<span class="string">'index.html'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">module</span>.exports = router;</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>mkdir views &amp;&amp; cd views &amp;&amp; touch index.html</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">    &lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">        &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        HELLO WORLD</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>touch tasks.js</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">var</span> router = express.Router();</span><br><span class="line"><span class="keyword">var</span> mongojs = <span class="built_in">require</span>(<span class="string">'mongojs'</span>)</span><br><span class="line"><span class="keyword">var</span> db = mongojs(<span class="string">'mongodb://localhost:27017/nodeapp'</span>, [<span class="string">'tasks'</span>])</span><br><span class="line"></span><br><span class="line">router.get(<span class="string">'/tasks'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    db.tasks.find(<span class="function"><span class="keyword">function</span> (<span class="params">err, tasks</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            res.send(err);</span><br><span class="line">        &#125;</span><br><span class="line">        res.json(tasks);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.get(<span class="string">'/task/:id'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    db.tasks.findOne(&#123;<span class="attr">_id</span>: mongojs.ObjectId(req.params.id)&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, task</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            res.send(err);</span><br><span class="line">        &#125;</span><br><span class="line">        res.json(task);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.post(<span class="string">'/task'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> task = req.body;</span><br><span class="line">    <span class="keyword">if</span> (!task.title || !(task.isDone + <span class="string">''</span>)) &#123;</span><br><span class="line">        req.status(<span class="number">400</span>);</span><br><span class="line">        res.json(&#123;</span><br><span class="line">            <span class="string">"error"</span>: <span class="string">'Bad Date'</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        db.tasks.save(task, <span class="function"><span class="keyword">function</span> (<span class="params">err, task</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                res.send(err);</span><br><span class="line">            &#125;</span><br><span class="line">            res.json(task);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.delete(<span class="string">'/task/:id'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    db.tasks.remove(&#123;<span class="attr">_id</span>: mongojs.ObjectId(req.params.id)&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, task</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            res.send(err);</span><br><span class="line">        &#125;</span><br><span class="line">        res.json(task);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.put(<span class="string">'/task/:id'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> task = req.body;</span><br><span class="line">    <span class="keyword">var</span> updTask = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (task.isDone) &#123;</span><br><span class="line">        updTask.isDone = task.isDone;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (task.title) &#123;</span><br><span class="line">        updTask.title = task.title;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!updTask) &#123;</span><br><span class="line">        res.status(<span class="number">400</span>);</span><br><span class="line">        res.json(&#123;</span><br><span class="line">            <span class="string">"error"</span>: <span class="string">'Bad Data'</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        db.tasks.update(&#123;<span class="attr">_id</span>: mongojs.ObjectId(req.params.id)&#125;, updTask, <span class="function"><span class="keyword">function</span> (<span class="params">err, task</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                res.send(err);</span><br><span class="line">            &#125;</span><br><span class="line">            res.json(task);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = router;</span><br></pre></td></tr></table></figure>
+<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><ol>
+<li>mkdir client &amp;&amp; mkdir app</li>
+<li>touch package.json</li>
+</ol>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"angular-quickstart"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"start"</span>: <span class="string">"tsc &amp;&amp; concurrently \"tsc -w\" \"lite-server\" "</span>,</span><br><span class="line">    <span class="attr">"lite"</span>: <span class="string">"lite-server"</span>,</span><br><span class="line">    <span class="attr">"postinstall"</span>: <span class="string">"typings install"</span>,</span><br><span class="line">    <span class="attr">"tsc"</span>: <span class="string">"tsc"</span>,</span><br><span class="line">    <span class="attr">"tsc:w"</span>: <span class="string">"tsc -w"</span>,</span><br><span class="line">    <span class="attr">"typings"</span>: <span class="string">"typings"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"licenses"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"MIT"</span>,</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"https://github.com/angular/angular.io/blob/master/LICENSE"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"@angular/common"</span>: <span class="string">"~2.1.0"</span>,</span><br><span class="line">    <span class="attr">"@angular/compiler"</span>: <span class="string">"~2.1.0"</span>,</span><br><span class="line">    <span class="attr">"@angular/core"</span>: <span class="string">"~2.1.0"</span>,</span><br><span class="line">    <span class="attr">"@angular/forms"</span>: <span class="string">"~2.1.0"</span>,</span><br><span class="line">    <span class="attr">"@angular/http"</span>: <span class="string">"~2.1.0"</span>,</span><br><span class="line">    <span class="attr">"@angular/platform-browser"</span>: <span class="string">"~2.1.0"</span>,</span><br><span class="line">    <span class="attr">"@angular/platform-browser-dynamic"</span>: <span class="string">"~2.1.0"</span>,</span><br><span class="line">    <span class="attr">"@angular/router"</span>: <span class="string">"~3.1.0"</span>,</span><br><span class="line">    <span class="attr">"@angular/upgrade"</span>: <span class="string">"~2.1.0"</span>,</span><br><span class="line">    <span class="attr">"angular-in-memory-web-api"</span>: <span class="string">"~0.1.5"</span>,</span><br><span class="line">    <span class="attr">"bootstrap"</span>: <span class="string">"^3.3.7"</span>,</span><br><span class="line">    <span class="attr">"core-js"</span>: <span class="string">"^2.4.1"</span>,</span><br><span class="line">    <span class="attr">"reflect-metadata"</span>: <span class="string">"^0.1.8"</span>,</span><br><span class="line">    <span class="attr">"rxjs"</span>: <span class="string">"5.0.0-beta.12"</span>,</span><br><span class="line">    <span class="attr">"systemjs"</span>: <span class="string">"0.19.39"</span>,</span><br><span class="line">    <span class="attr">"zone.js"</span>: <span class="string">"^0.6.25"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"concurrently"</span>: <span class="string">"^3.0.0"</span>,</span><br><span class="line">    <span class="attr">"lite-server"</span>: <span class="string">"^2.2.2"</span>,</span><br><span class="line">    <span class="attr">"typescript"</span>: <span class="string">"^2.0.3"</span>,</span><br><span class="line">    <span class="attr">"typings"</span>:<span class="string">"^1.4.0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>touch typings.json</li>
+</ol>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"globalDependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"core-js"</span>: <span class="string">"registry:dt/core-js#0.0.0+20160725163759"</span>,</span><br><span class="line">    <span class="attr">"jasmine"</span>: <span class="string">"registry:dt/jasmine#2.2.0+20160621224255"</span>,</span><br><span class="line">    <span class="attr">"node"</span>: <span class="string">"registry:dt/node#6.0.0+20160909174046"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>touch tsconfig.json</li>
+</ol>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"compilerOptions"</span>: &#123;</span><br><span class="line">        <span class="attr">"target"</span>: <span class="string">"es5"</span>,</span><br><span class="line">        <span class="attr">"module"</span>: <span class="string">"commonjs"</span>,</span><br><span class="line">        <span class="attr">"moduleResolution"</span>: <span class="string">"node"</span>,</span><br><span class="line">        <span class="attr">"sourceMap"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">"emitDecoratorMetadata"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">"experimentalDecorators"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">"removeComments"</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">"noImplicitAny"</span>: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>systemjs.config.js</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * System configuration for Angular samples</span></span><br><span class="line"><span class="comment"> * Adjust as necessary for your application needs.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">global</span>) </span>&#123;</span><br><span class="line">  System.config(&#123;</span><br><span class="line">    paths: &#123;</span><br><span class="line">      <span class="comment">// paths serve as alias</span></span><br><span class="line">      <span class="string">'npm:'</span>: <span class="string">'node_modules/'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// map tells the System loader where to look for things</span></span><br><span class="line">    map: &#123;</span><br><span class="line">      <span class="comment">// our app is within the app folder</span></span><br><span class="line">      app: <span class="string">'app'</span>,</span><br><span class="line">      <span class="comment">// angular bundles</span></span><br><span class="line">      <span class="string">'@angular/core'</span>: <span class="string">'npm:@angular/core/bundles/core.umd.js'</span>,</span><br><span class="line">      <span class="string">'@angular/common'</span>: <span class="string">'npm:@angular/common/bundles/common.umd.js'</span>,</span><br><span class="line">      <span class="string">'@angular/compiler'</span>: <span class="string">'npm:@angular/compiler/bundles/compiler.umd.js'</span>,</span><br><span class="line">      <span class="string">'@angular/platform-browser'</span>: <span class="string">'npm:@angular/platform-browser/bundles/platform-browser.umd.js'</span>,</span><br><span class="line">      <span class="string">'@angular/platform-browser-dynamic'</span>: <span class="string">'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js'</span>,</span><br><span class="line">      <span class="string">'@angular/http'</span>: <span class="string">'npm:@angular/http/bundles/http.umd.js'</span>,</span><br><span class="line">      <span class="string">'@angular/router'</span>: <span class="string">'npm:@angular/router/bundles/router.umd.js'</span>,</span><br><span class="line">      <span class="string">'@angular/forms'</span>: <span class="string">'npm:@angular/forms/bundles/forms.umd.js'</span>,</span><br><span class="line">      <span class="comment">// other libraries</span></span><br><span class="line">      <span class="string">'rxjs'</span>:                      <span class="string">'npm:rxjs'</span>,</span><br><span class="line">      <span class="string">'angular-in-memory-web-api'</span>: <span class="string">'npm:angular-in-memory-web-api'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// packages tells the System loader how to load when no filename and/or no extension</span></span><br><span class="line">    packages: &#123;</span><br><span class="line">      app: &#123;</span><br><span class="line">        main: <span class="string">'./main.js'</span>,</span><br><span class="line">        defaultExtension: <span class="string">'js'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      rxjs: &#123;</span><br><span class="line">        defaultExtension: <span class="string">'js'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">'angular-in-memory-web-api'</span>: &#123;</span><br><span class="line">        main: <span class="string">'./index.js'</span>,</span><br><span class="line">        defaultExtension: <span class="string">'js'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;)(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>npm install</li>
+<li>touch .bowerrc</li>
+</ol>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"directory"</span>: <span class="string">"./client/bower_components"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li>bower install bootstrap –save</li>
+</ol>
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a><a href="https://github.com/yuluhuang/mea2n-tasklist" target="_blank" rel="noopener">Demo</a></h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yuluhuang.github.io/2016/10/23/mean-tasklist/" data-id="cjso2qz4o000rdn31uxoutogp" class="article-share-link">Share</a>
+      
+        <a href="http://yuluhuang.github.io/2016/10/23/mean-tasklist/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mean/">mean</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongo/">mongo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ng2/">ng2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ebook" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/16/ebook/" class="article-date">
+  <time datetime="2016-10-16T03:37:19.000Z" itemprop="datePublished">2016-10-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/16/ebook/">ebook</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="EBOOK-收集"><a href="#EBOOK-收集" class="headerlink" title="EBOOK 收集"></a>EBOOK 收集</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">图片</th>
+<th style="text-align:center">书名</th>
+<th style="text-align:center">下载</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="http://7ls06l.com1.z0.glb.clouddn.com/QQ20161016-0.png" alt="designing-great-web-apis"></td>
+<td style="text-align:center">designing-great-web-apis</td>
+<td style="text-align:center"><a href="http://7ls06l.com1.z0.glb.clouddn.com/designing-great-web-apis.pdf" target="_blank" rel="noopener">下载</a></td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yuluhuang.github.io/2016/10/16/ebook/" data-id="cjso2qz4f000idn319b5civpw" class="article-share-link">Share</a>
+      
+        <a href="http://yuluhuang.github.io/2016/10/16/ebook/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ebook/">ebook</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-一位合格工程师应该具备的要素" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/08/一位合格工程师应该具备的要素/" class="article-date">
+  <time datetime="2016-10-08T12:31:06.000Z" itemprop="datePublished">2016-10-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/08/一位合格工程师应该具备的要素/">一位合格工程师应该具备的要素</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>引：大多数人在进入软件开发这一行业迷漫无措的，当然也有人是充满激情和理想， 但是并不是每个人都能成为黑客<br>帝国中的主人公，就算配角也是寥寥无几。平凡是基调但是我们拒绝平凡，曾经的我们都曾梦想改变世界，现在依旧<br>这么认为</p>
+<h1 id="知学善用"><a href="#知学善用" class="headerlink" title="知学善用"></a>知学善用</h1><p>简而言之就是善于学习，并且学以致用</p>
+<h2 id="注重自身成长"><a href="#注重自身成长" class="headerlink" title="注重自身成长"></a>注重自身成长</h2><ol>
+<li><a href="http://yuluhuang.github.io/2016/10/07/%E6%8F%90%E9%97%AE%E7%9A%84%E6%99%BA%E6%85%A7/">学会正确提问</a></li>
+<li>正确使用搜索引擎，养成良好的搜索习惯让搜索引擎成为你的专属工具</li>
+<li>勤做笔记， 勤写博客，知识只有传播才有价值</li>
+<li>维护好你的代码</li>
+</ol>
+<h2 id="耐得住寂寞"><a href="#耐得住寂寞" class="headerlink" title="耐得住寂寞"></a>耐得住寂寞</h2><p>程序员的日常生活就是：找到问题-评估选择最优解决方案-完成-测试-发现问题<br>大多数程序员在996的工作环境下变得沉默寡言，拿起你的手机看看微信朋友圈或者qq空间几乎没有自己的说说<br>炫富的程序员不是好的程序员也是一样道理，这已经成为这个行业的标志：人傻钱多不会花</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yuluhuang.github.io/2016/10/08/一位合格工程师应该具备的要素/" data-id="cjso2qz4x0015dn315seemj7v" class="article-share-link">Share</a>
+      
+        <a href="http://yuluhuang.github.io/2016/10/08/一位合格工程师应该具备的要素/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-提问的智慧" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/07/提问的智慧/" class="article-date">
+  <time datetime="2016-10-07T13:16:38.000Z" itemprop="datePublished">2016-10-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/07/提问的智慧/">提问的智慧</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>转：<a href="http://www.dianbo.org/9238/stone/tiwendezhihui.htm" target="_blank" rel="noopener">http://www.dianbo.org/9238/stone/tiwendezhihui.htm</a></p>
+<p>在黑客世界里，当提出一个技术问题时，你能得到怎样的回答？这取决于挖出答案的难度，同样取决于你提问的方法。本指南旨在帮助你提高发问技巧，以获取你最想要的答案。</p>
+<p>　　首先你必须明白，黑客们只偏爱艰巨的任务，或者能激发他们思维的好问题。 如若不然，我们还来干吗？如果你有值得我们反复咀嚼玩味的好问题，我们自会对你感激不尽。好问题是激励，是厚礼，可以提高我们的理解力，而且通常会暴露我们以前从没意识到或者思考过的问题。对黑客而言，“问得好！”是发自内心的大力称赞。</p>
+<p>　　尽管黑客们有蔑视简单问题和不友善的坏名声，有时看起来似乎我们对新手，对知识贫乏者怀有敌意，但其实不是那样的。</p>
+<p>　　我们不想掩饰对这样一些人的蔑视–他们不愿思考，或者在发问前不去完成他们应该做的事。这种人只会谋杀时间–他们只愿索取，从不付出，无端消耗我们的时间，而我们本可以把时间用在更有趣的问题或者更值得回答的人身上。 我们称这样的人为“失败者”（由于历史原因，我们有时把它拼作“lusers”）。</p>
+<p>　　我们在很大程度上属于志愿者，从繁忙的生活中抽出时间来解惑答疑，而且时常被提问淹没。所以我们无情的滤掉一些话题，特别是抛弃那些看起来象失败者的家伙，以便更高效的利用时间来回答胜利者的问题。</p>
+<p>　　如果你觉得我们过于傲慢的态度让你不爽，让你委屈，不妨设身处地想想。我们并没有要求你向我们屈服–事实上，我们中的大多数人最喜欢公平交易不过了，只要你付出小小努力来满足最起码的要求，我们就会欢迎你加入到我们的文化中来。但让我们帮助那些不愿意帮助自己的人是没有 意义的。如果你不能接受这种“歧视”，我们建议你花点钱找家商业公司签个技术支持协议得了，别向黑客乞求帮助。</p>
+<p>　　如果你决定向我们求助，当然不希望被视为失败者，更不愿成为失败者中的一员。立刻得到有效答案的最好方法，就是象胜利者那样提问 —— 聪明、自信、有解决问题的思路，只是偶尔在特定的问题上需要获得一点帮助。</p>
+<p>　　（欢迎对本指南提出改进意见。任何建议请E-mail至<a href="mailto:esr@thyrsus.com" target="_blank" rel="noopener">esr@thyrsus.com</a>，然而 请注意，本文并非网络礼节的通用指南，我通常会拒绝无助于在技术论坛得到有用答案的建议。） （当然，如果你写中文，最好还是寄<a href="mailto:DHGrand@hotmail.com" target="_blank" rel="noopener">DHGrand@hotmail.com</a>;-）</p>
+<p>= 提问之前 =</p>
+<p>　　在通过电邮、新闻组或者聊天室提出技术问题前，检查你有没有做到：</p>
+<ol>
+<li>通读手册，试着自己找答案。</li>
+<li>在FAQ里找答案（一份维护得好的FAQ可以包罗万象:）。</li>
+<li>在网上搜索（个人推荐google~~~）。</li>
+<li>向你身边精于此道的朋友打听。</li>
+</ol>
+<p>　　当你提出问题的时候，首先要说明在此之前你干了些什么；这将有助于树立你的形象：你不是一个妄图不劳而获的乞讨者，不愿浪费别人的时间。如果提问者能从答案中学到东西，我们更乐于回答他的问题。</p>
+<p>　　周全的思考，准备好你的问题，草率的发问只能得到草率的回答，或者根本得不到任何答案。越表现出在寻求帮助前为解决问题付出的努力，你越能得到实质性的帮助。</p>
+<p>　　小心别问错了问题。如果你的问题基于错误的假设，普通黑客（J. Random Hacker）通常会用无意义的字面解释来答复你，心里想着“蠢问题…”，希望着你会从问题的回答（而非你想得到的答案）中汲取教训。</p>
+<p>　　决不要自以为够资格得到答案，你没这种资格。毕竟你没有为这种服务支付任何报酬。你要自己去“挣”回一个答案，靠提出一个有内涵的，有趣的，有思维激励作用的问题–一个对社区的经验有潜在贡献的问题，而不仅仅是被动的从他人处索要知识–去挣到这个答案。</p>
+<p>　　另一方面，表明你愿意在找答案的过程中做点什么，是一个非常好的开端。“谁能给点提示？”、“我这个例子里缺了什么？”以及“我应该检查什么地方？”比“请把确切的过程贴出来”更容易得到答复。因为你显得只要有人指点正确的方向，你就有完成它的能力和决心。</p>
+<p>= 怎样提问 =</p>
+<ul>
+<li>谨慎选择论坛<br>　　小心选择提问的场合。如果象下面描述的那样，你很可能被忽略掉或者被看作失败者：</li>
+</ul>
+<ol>
+<li>在风马牛不相及的论坛贴出你的问题</li>
+<li>在探讨高级技巧的论坛张贴非常初级的问题；反之亦然</li>
+<li>在太多的不同新闻组交叉张贴</li>
+</ol>
+<ul>
+<li>用辞贴切，语法正确，拼写无误<br>　　我们从经验中发现，粗心的写作者通常也是马虎的思考者（我敢打包票）。 回答粗心大意者的问题很不值得，我们宁愿把时间耗在别处。</li>
+</ul>
+<p>　　正确的拼写，标点符号和大小写很重要。<br>　　更一般的说，如果你的提问写得象个半文盲，你很有可能被忽视。</p>
+<p>　　如果你在使用非母语的论坛提问，你可以犯点拼写和语法上的小错–但决不能在思考上马虎（没错，我们能弄清两者的分别）</p>
+<ul>
+<li>使用含义丰富，描述准确的标题<br>　　在邮件列表或者新闻组中，大约50字以内的主题标题是抓住资深专家注意力 的黄金时机。别用喋喋不休的“帮帮忙”（更别说“救命啊！！！！！”这 样让人反感的话）来浪费这个机会。不要妄想用你的痛苦程度来打动我们， 别用空格代替问题的描述，哪怕是极其简短的描述。</li>
+</ul>
+<p>　　蠢问题： 救命啊！我的膝上机不能正常显示了！<br>　　聪明问题： XFree86 4.1下鼠标光标变形，Fooware MV1005的显示芯片。</p>
+<p>　　如果你在回复中提出问题，记得要修改内容标题，表明里面有一个问题。一个看起来象“Re：测试”或者“Re：新bug”的问题很难引起足够重视。另外，引用并删减前文的内容，给新来的读者留下线索。</p>
+<ul>
+<li>精确描述，信息量大</li>
+</ul>
+<ol>
+<li>谨慎明确的描述症状。</li>
+<li>提供问题发生的环境（机器配置、操作系统、应用程序以及别的什么）。</li>
+<li>说明你在提问前是怎样去研究和理解这个问题的。</li>
+<li>说明你在提问前采取了什么步骤去解决它。</li>
+<li>罗列最近做过什么可能有影响的硬件、软件变更。</li>
+</ol>
+<p>　　尽量想象一个黑客会怎样反问你，在提问的时候预先给他答案。</p>
+<p>　　Simon Tatham写过一篇名为《如何有效的报告Bug》的出色短文。强力推荐你也读一读。</p>
+<ul>
+<li>话不在多<br>　　你需要提供精确有效的信息。这并不是要求你简单的把成吨的出错代码或者数据完全转储摘录到你的提问中。如果你有庞大而复杂的测试条件，尽量把它剪裁得越小越好。</li>
+</ul>
+<p>　　这样做的用处至少有三点。第一，表现出你为简化问题付出了努力，这可以使你得 到回答的机会增加；第二，简化问题使你得到有用答案的机会增加；第三，在提炼 你的bug报告的过程中，也许你自己就能找出问题所在或作出更正。</p>
+<ul>
+<li>只说症状，不说猜想<br>　　告诉黑客们你认为问题是怎样引起的没什么帮助。（如果你的推断如此有效，还用向别人求助吗？），因此要确信你原原本本告诉了他们问题的症状，不要加进你自己的理解和推论。让黑客们来诊断吧。</li>
+</ul>
+<p>蠢问题： 我在内核编译中一次又一次遇到SIG11错误，我怀疑某条飞线搭在主板的走线上了，这种情况应该怎样检查最好？<br>聪明问题： 我自制的一套K6/233系统，主板是FIC-PA2007 （VIA Apollo VP2芯片组），256MB Corsair PC133 SDRAM，在内核编译中频频产生SIG11错误，从开机20分钟以后就有这种情况，开机 前20分钟内从没发生过。重启也没有用，但是关机一晚上就又能工作20分钟。所有 内存都换过了，没有效果。相关部分的典型编译记录如下…。</p>
+<ul>
+<li>按时间顺序列出症状<br>　　对找出问题最有帮助的线索，往往就是问题发生前的一系列操作，因此，你的说明 应该包含操作步骤，以及电脑的反应，直到问题产生。</li>
+</ul>
+<p>　　如果你的说明很长（超过四个段落），在开头简述问题会有所帮助，接下来按时间顺序详述。这样黑客们就知道该在你的说明中找什么。</p>
+<ul>
+<li>明白你想问什么<br>　　漫无边际的提问近乎无休无止的时间黑洞。最能给你有用答案的人也正是最忙的人（他们忙是因为要亲自完成大部分工作）。这样的人对无节制的时间黑洞不太感冒，因此也可以说他们对漫无边际的提问不大感冒。</li>
+</ul>
+<p>　　如果你明确表述需要回答者做什么（提供建议，发送一段代码，检查你的补丁或是别的），就最有可能得到有用的答案。这会定出一个时间和精力的上限，便于回答者集中精力来帮你，这很凑效。要理解专家们生活的世界，要把专业技能想象为充裕的资源，而回复的时间则是贫乏的资源。解决你的问题需要的时间越少，越能从忙碌的专家口中掏出答案。</p>
+<p>　　因此，优化问题的结构，尽量减少专家们解决它所需要的时间，会有很大的帮助–这通常和简化问题有所区别。因此，问“我想更好的理解X，能给点提示吗？”通常比问“你能解释一下X吗？”更好。如果你的代码不能工作，问问它有什么地方不对，比要求别人替你修改要明智得多。</p>
+<ul>
+<li><p>别问应该自己解决的问题<br>　　黑客们总是善于分辨哪些问题应该由你自己解决；因为我们中的大多数都曾自己解决这类问题。同样，这些问题得由你来搞定，你会从中学到东西。你可以要求给点提示，但别要求得到完整的解决方案。</p>
+</li>
+<li><p>去除无意义的疑问<br>　　别用无意义的话结束提问，例如“有人能帮我吗？”或者“有答案吗？”。 首先：如果你对问题的描述不很合适，这样问更是画蛇添足。其次：由于这 样问是画蛇添足，黑客们会很厌烦你–而且通常会用逻辑上正确的回答来表 示他们的蔑视，例如：“没错，有人能帮你”或者“不，没答案”。</p>
+</li>
+<li><p>谦逊绝没有害处，而且常帮大忙<br>彬　　彬有礼，多用“请”和“先道个谢了”。让大家都知道你对他们花费时间义务提供帮助心存感激。然而，如果你有很多问题无法解决，礼貌将会增加你得到有用答案的机会。</p>
+</li>
+</ul>
+<p>　　（我们注意到，自从本指南发布后，从资深黑客处得到的唯一严重缺陷反馈，就是对预先道谢这一条。一些黑客觉得“先谢了”的言外之意是过后就不会再感谢任何人了。我们的建议是：都道谢。）</p>
+<ul>
+<li><p>问题解决后，加个简短说明<br>　　问题解决后，向所有帮助过你的人发个说明，让他们知道问题是怎样解决的，并再一次向他们表示感谢。如果问题在新闻组或者邮件列表中引起了广泛关注，应该在那里贴一个补充说明。补充说明不必很长或是很深入；简单的一句“你好，原来是网线出了问题！谢谢大家–Bill”比什么也不说要强。事实上，除非结论真的很有技术含量，否则简短可爱的小结比长篇学术论文更好。说明问题是怎样解决的，但大可不必将解决问题的过程复述一遍。除了表示礼貌和反馈信息以外，这种补充有助于他人在邮件列表/新闻组/论坛中搜索对你有过帮助的完整解决方案，这可能对他们也很有用。最后（至少？），这种补充有助于所有提供过帮助的人从中得到满足感。如果你自己不是老手或者黑客，那就相信我们，这种感觉对于那些你向他们求助的导师或者专家而言，是非常重要的。问题久拖未决会让人灰心；黑客们渴望看到问题被解决。好人有好报，满足他们的渴望，你会在下次贴出新问题时尝到甜头。</p>
+</li>
+<li><p>还是不懂<br>　　如果你不是很理解答案，别立刻要求对方解释。象你以前试着自己解决问题时那样（利用手册，FAQ，网络，身边的高手），去理解它。如果你真的需要对方解释，记得表现出你已经学到了点什么。比方说，如果我回答你：“看来似乎是zEntry被阻塞了；你应该先清除它。”，然后：一个很糟的后续问题：“zEntry是什么？” 聪明的问法应该是这样：“哦~~~我看过帮助了但是只有-z和-p两个参数中提到了zEntry而且还都没有清楚的解释:&lt;你是指这两个中的哪一个吗？还是我看漏了什么？”</p>
+</li>
+</ul>
+<p>= 三思而后问 =</p>
+<p>以下是几个经典蠢问题，以及黑客在拒绝回答时的心中所想：</p>
+<p>问题：我能在哪找到X程序？<br>问题：我的程序/配置/SQL申明没有用<br>问题：我的Windows有问题，你能帮我吗？<br>问题：我在安装Linux（或者X）时有问题，你能帮我吗？<br>问题：我怎么才能破解root帐号/窃取OP特权/读别人的邮件呢？</p>
+<p>提问：我能在哪找到X程序？<br>回答：就在我找到它的地方啊蠢货–搜索引擎的那一头。天呐！还有人不会用Google吗？</p>
+<p>提问：我的程序（配置、SQL申明）没有用<br>回答：这不算是问题吧，我对找出你的真正问题没兴趣–如果要我问你二十个问题才找得出来的话–我有更有意思的事要做呢。</p>
+<p>在看到这类问题的时候，我的反应通常不外如下三种：</p>
+<ol>
+<li>你还有什么要补充的吗？</li>
+<li>真糟糕，希望你能搞定。</li>
+<li>这跟我有什么鸟相关？</li>
+</ol>
+<p>提问：我的Windows有问题，你能帮我吗？<br>回答：能啊，扔掉萎软的垃圾，换Linux吧。</p>
+<p>提问：我在安装Linux（或者X）时有问题，你能帮我吗？<br>回答：不能，我只有亲自在你的电脑上动手才能找到毛病。还是去找你当地的Linux用户组寻求手把手的指导吧（你能在这儿找到用户组的清单）。</p>
+<p>提问：我怎么才能破解root帐号/窃取OP特权/读别人的邮件呢？<br>回答：想要这样做，说明你是个卑鄙小人；想找个黑客帮你，说明你是个白痴！</p>
+<p>= 好问题，坏问题 =</p>
+<p>　　最后，我举一些例子来说明，怎样聪明的提问；同一个问题的两种问法被放在一起，一种是愚蠢的，另一种才是明智的。</p>
+<p>蠢问题：我可以在哪儿找到关于Foonly Flurbamatic的资料？<br>// 这种问法无非想得到“STFW”这样的回答。</p>
+<p>聪明问题：我用Google搜索过“Foonly Flurbamatic 2600”，但是没找到有用的结果。谁知道上哪儿去找对这种设备编程的资料？<br>// 这个问题已经STFW过了，看起来他真的遇到了麻烦。</p>
+<p>蠢问题：我从FOO项目找来的源码没法编译。它怎么这么烂？<br>// 他觉得都是别人的错，这个傲慢自大的家伙</p>
+<p>聪明问题：FOO项目代码在Nulix 6.2版下无法编译通过。我读过了FAQ，但里面没有提到跟Nulix有关的问题。这是我编译过程的记录，我有什么做得不对的地方吗？<br>// 他讲明了环境，也读过了FAQ，还指明了错误，并且他没有把问题的责任推到别人头上，这个家伙值得留意。</p>
+<p>蠢问题：我的主板有问题了，谁来帮我？<br>// 普通黑客对这类问题的回答通常是：“好的，还要帮你拍拍背和换尿布吗？” ，然后按下删除键。</p>
+<p>聪明问题：我在S2464主板上试过了X、Y和Z，但没什么作用，我又试了A、B和C。请注意当我尝试C时的奇怪现象。显然边带传输中出现了收缩，但结果出人意料。在多处理器主板上引起边带泄漏的通常原因是什么？谁有好主意接下来我该做些什么测试才能找出问题？<br>// 这个家伙，从另一个角度来看，值得去回答他。他表现出了解决问题的能力，而不是坐等天上掉答案。</p>
+<p>　　在最后一个问题中，注意“告诉我答案”和“给我启示，指出我还应该做什么诊断工作”之间微妙而又重要的区别。事实上，后一个问题源自于2001年8月在Linux内核邮件列表上的一个真实的提问。我（Eric）就是那个提出问题的人。我在Tyan S2464主板上观察到了这种无法解释的锁定现象，列表成员们提供了解决那一问题的重要信息。</p>
+<p>　　通过我的提问方法，我给了大家值得玩味的东西；我让人们很容易参与并且被吸引进来。我显示了自己具备和他们同等的能力，邀请他们与我共同探讨。我告诉他们我所走过的弯路，以避免他们再浪费时间，这是一种对他人时间价值的尊重。后来，当我向每个人表示感谢，并且赞赏这套程序（指邮件列表中的讨论 –译者注）运作得非常出色的时候，一个Linux内核邮件列（lkml）成员表示，问题得到解决并非由于我是这个列表中的“名人”，而是因为我用了正确的方式来提问。我们黑客从某种角度来说是拥有丰富知识但缺乏人情味的家伙；我相信他是对的，如果我象个乞讨者那样提问，不论我是谁，一定会惹恼某些人或者被他们忽视。他建议我记下这件事，给编写这个指南的人一些指导。</p>
+<p>= 找不到答案怎么办 =</p>
+<p>　　如果仍得不到答案，请不要以为我们觉得无法帮助你。有时只是看到你问题的人不知道答案罢了。没有回应不代表你被忽视，虽然不可否认这种差别很难区分。</p>
+<p>　　总的说来，简单的重复张贴问题是个很糟的想法。这将被视为无意义的喧闹。</p>
+<p>　　你可以通过其它渠道获得帮助，这些渠道通常更适合初学者的需要。有许多网上的以及本地的用户组，由狂热的软件爱好者（即使他们可能从没亲自写过任何软件）组成。通常人们组建这样的团体来互相帮助并帮助新手。</p>
+<p>　　另外，你可以向很多商业公司寻求帮助，不论公司大还是小（Red Hat 和LinuxCare 就是两个最常见的例子）。别为要付费才能获得帮助而感到沮丧！毕竟，假使你的汽车发动机汽缸密封圈爆掉了–完全可能如此–你还得把它送到修车铺，并且为维修付费。就算软件没花费你一分钱，你也不能强求技术支持总是免费的。</p>
+<p>　　对大众化的软件，就象Linux之类而言，每个开发者至少会有上万名用户。根本不可能由一个人来处理来自上万名用户的求助电话。要知道，即使你要为帮助付费，同你必须购买同类软件相比，你所付出的也是微不足道的（通常封闭源代码软件的技术支持费用比开放源代码软件要高得多，且内容也不那么丰富）。</p>
+<p>Copyright (C) 2001 by Eric S. Raymond<br>中文版 Copyleft 2001 by D.H.Grand(nOBODY/Ginux)<br>英文版：<a href="http://www.tuxedo.org/~esr/faqs/smart-questions.html" target="_blank" rel="noopener">http://www.tuxedo.org/~esr/faqs/smart-questions.html</a><br>感谢 Eric 的耐心指点和同意，本文才得以完成并发布，<br>本指南 英文版版权为 Eric Steven Raymond 所有，<br>中文版版权由 D.H.Grand[nOBODY/Ginux] 所有</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yuluhuang.github.io/2016/10/07/提问的智慧/" data-id="cjso2qz6x003ddn31bo1xzsml" class="article-share-link">Share</a>
+      
+        <a href="http://yuluhuang.github.io/2016/10/07/提问的智慧/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ssl-tls" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/07/ssl-tls/" class="article-date">
+  <time datetime="2016-10-07T12:30:00.000Z" itemprop="datePublished">2016-10-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/07/ssl-tls/">https ssl/tls</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>转：<a href="https://program-think.blogspot.com/2016/09/https-ssl-tls-3.html" target="_blank" rel="noopener">https://program-think.blogspot.com/2016/09/https-ssl-tls-3.html</a></p>
+<h2 id="★密钥交换-协商机制要达到啥目的？"><a href="#★密钥交换-协商机制要达到啥目的？" class="headerlink" title="★密钥交换/协商机制要达到啥目的？"></a>★密钥交换/协商机制要达到啥目的？</h2><p>　　前一篇介绍了 SSL/TLS 的身份认证机制。这个机制是为了防止攻击者通过【篡改】网络传输数据，来假冒身份，以达到“中间人攻击/MITM”的目的。<br>　　而今天要聊的“密钥协商机制”是：（在身份认证的前提下）如何规避【偷窥】的风险。<br>　　通俗地说，即使有攻击者在偷窥你与服务器的网络传输，客户端（client）依然可以利用“密钥协商机制”与服务器端（server）协商出一个用来加密应用层数据的密钥（也称“会话密钥”）。</p>
+<h2 id="★密钥交换-协商机制的几种类型"><a href="#★密钥交换-协商机制的几种类型" class="headerlink" title="★密钥交换/协商机制的几种类型"></a>★密钥交换/协商机制的几种类型</h2><p>　　俺总结了一下，大致有如下几种类型：</p>
+<h3 id="◇依靠非对称加密算法"><a href="#◇依靠非对称加密算法" class="headerlink" title="◇依靠非对称加密算法"></a>◇依靠非对称加密算法</h3><p>　　原理：<br>　　拿到公钥的一方先生成随机的会话密钥，然后利用公钥加密它；再把加密结果发给对方，对方用私钥解密；于是双方都得到了会话密钥。</p>
+<p>　　举例：<br>　　<code>RSA</code></p>
+<h3 id="◇依靠专门的密钥交换算法"><a href="#◇依靠专门的密钥交换算法" class="headerlink" title="◇依靠专门的密钥交换算法"></a>◇依靠专门的密钥交换算法</h3><p>　　原理：<br>　　这个原理比较复杂，一两句话说不清楚，待会儿聊到 DH 的那个章节会详谈。</p>
+<p>　　举例：<br>　　<code>DH 算法及其变种</code></p>
+<h3 id="◇依靠通讯双方事先已经共享的“秘密”"><a href="#◇依靠通讯双方事先已经共享的“秘密”" class="headerlink" title="◇依靠通讯双方事先已经共享的“秘密”"></a>◇依靠通讯双方事先已经共享的“秘密”</h3><p>　　原理：<br>　　既然双方已经有共享的秘密（这个“秘密”可能已经是一个密钥，也可能只是某个密码/password），只需要根据某种生成算法，就可以让双方产生相同的密钥（并且密钥长度可以任意指定）</p>
+<p>　　举例：<br>　　<code>PSK 和 SRP（可能很多同学没听过这俩玩意儿。别担心，本文后续部分有介绍）</code></p>
+<h2 id="★基于-RSA-的密钥协商"><a href="#★基于-RSA-的密钥协商" class="headerlink" title="★基于 RSA 的密钥协商"></a>★基于 RSA 的密钥协商</h2><h3 id="◇概述"><a href="#◇概述" class="headerlink" title="◇概述"></a>◇概述</h3><p>　　这大概是 SSL 最古老的密钥协商方式——早期的 SSLv2 只支持一种密钥协商机制，就是它。（前一篇）介绍身份认证重要性的时候，也是拿 RSA 来演示。<br>　　RSA 是一种【非】对称加密算法。在本系列第1篇的背景知识介绍中，已经聊过这种算法的特点——加密和解密用使用【不同的】密钥。并且“非对称加密算法”既可以用来做“加密/解密”，还可以用来做“数字签名”。</p>
+<h3 id="◇密钥协商的步骤"><a href="#◇密钥协商的步骤" class="headerlink" title="◇密钥协商的步骤"></a>◇密钥协商的步骤</h3><p>　　（下列步骤只阐述原理，具体的协议细节在下一篇讲）</p>
+<ol>
+<li>客户端连上服务端</li>
+<li>服务端发送 CA 证书给客户端</li>
+<li>客户端验证该证书的可靠性</li>
+<li>客户端从 CA 证书中取出公钥</li>
+<li>客户端生成一个随机密钥 k，并用这个公钥加密得到 k’</li>
+<li>客户端把 k’ 发送给服务端</li>
+<li>服务端收到 k’ 后用自己的私钥解密得到 k</li>
+<li>此时双方都得到了密钥 k，协商完成。</li>
+</ol>
+<h3 id="◇如何防范偷窥（嗅探）"><a href="#◇如何防范偷窥（嗅探）" class="headerlink" title="◇如何防范偷窥（嗅探）"></a>◇如何防范偷窥（嗅探）</h3><p>　　攻击方式1<br>　　攻击者虽然可以监视网络流量并拿到公钥，但是【无法】通过公钥推算出私钥（这点由 RSA 算法保证）</p>
+<p>　　攻击方式2<br>　　攻击者虽然可以监视网络流量并拿到 k’，但是攻击者没有私钥，【无法解密】 k’，因此也就无法得到 k</p>
+<h3 id="◇如何防范篡改（假冒身份）"><a href="#◇如何防范篡改（假冒身份）" class="headerlink" title="◇如何防范篡改（假冒身份）"></a>◇如何防范篡改（假冒身份）</h3><p>　　攻击方式1<br>　　如果攻击者在第2步篡改数据，伪造了证书，那么客户端在第3步会发现（这点由证书体系保证）</p>
+<p>　　攻击方式2<br>　　如果攻击者在第6步篡改数据，伪造了k’，那么服务端收到假的k’之后，解密会失败（这点由 RSA 算法保证）。服务端就知道被攻击了。</p>
+<h2 id="★基于-DH-的密钥协商"><a href="#★基于-DH-的密钥协商" class="headerlink" title="★基于 DH 的密钥协商"></a>★基于 DH 的密钥协商</h2><h3 id="◇概述-1"><a href="#◇概述-1" class="headerlink" title="◇概述"></a>◇概述</h3><p>　　DH 算法又称“Diffie–Hellman 算法”。这是两位数学牛人的名称，他们创立了这个算法。该算法用来实现【安全的】“密钥交换”。它可以做到——“通讯双方在完全没有对方任何预先信息的条件下通过不安全信道创建起一个密钥”。这句话比较绕口，通俗地说，可以归结为两个优点：</p>
+<ol>
+<li>通讯双方事先【不】需要有共享的秘密。</li>
+<li>用该算法协商密码，即使协商过程中被别人全程偷窥（比如“网络嗅探”），偷窥者也【无法】知道协商得出的密钥是啥。</li>
+</ol>
+<p>　　但是 DH 算法本身也有缺点——它不支持认证。也就是说：它虽然可以对抗“偷窥”，却无法对抗“篡改”，自然也就无法对抗“中间人攻击/MITM”（在本系列的前一篇，俺已经强调过了——缺乏身份认证，【必定会】遭到“中间人攻击/MITM”）。<br>　　为了避免遭遇 MITM 攻击，DH 需要与其它签名算法（比如 RSA、DSA、ECDSA）配合——靠签名算法帮忙来进行身份认证。当 DH 与 RSA 配合使用，称之为“DH-RSA”，与 DSA 配合则称为“DH-DSA”，以此类推<br>　　反之，如果 DH 【没有】配合某种签名算法，则称为“DH-ANON”（ANON 是洋文“匿名”的简写）。此时会遭遇“中间人攻击/MITM”。（具体的中间人攻击手法，可以参见本系列前一篇）</p>
+<p>　　关于该算法的更多介绍，可以参见维基百科（这个条目）。</p>
+<h3 id="◇数学原理"><a href="#◇数学原理" class="headerlink" title="◇数学原理"></a>◇数学原理</h3><p>　　（如果你属于那种“看了数学公式就犯晕的人”，可以直接略过本小节，不影响你看后续的章节）</p>
+<p>　　从概念上讲：DH 依赖的是：求解“离散对数问题”的复杂性。具体的算法如下：<br>　　通讯双方（张三、李四）需要先约定好算法参数（algorithm parameters）：一个素数 p 作为模数，一个素数 g 作为基数（g 也称为“生成元”）。这两个算法参数是可以对外公开滴。<br>　　对于张三而言，需要先想好一个秘密的自然数 a 作为私钥（不能公开），然后计算 A = ga mod p 作为自己的公钥（可以公开）。<br>　　对李四而言也类似，先想好一个秘密的自然数 b 作为私钥（不能公开），然后计算 B = gb mod p 作为自己的公钥（可以公开）。<br>　　张三和李四互相交换各自的公钥。<br>　　然后张三计算出 k = Ba mod p，李四计算出 k = Ab mod p</p>
+<p>　　该算法至少确保了如下几点：</p>
+<ol>
+<li>张三和李四分别计算出来的 k 必定是一致的</li>
+<li>张三和李四都无法根据已知的数来推算出对方的私钥（张三无法推算出 b，李四无法推算出 a）</li>
+<li>对于一个旁观者（偷窥者），虽然能看到 p，g，A，B，但是无法推算出 a 和 b（就是说，旁观者无法推算出双方的私钥），自然也无法推算出 k</li>
+</ol>
+<p>　　举例<br>　　前面说得都是符号，比较抽象。下面拿具体数字举例：<br>假设约定的算法参数：模数是 97，基数是 3<br>张三用的私钥是 6，李四用的私钥是 21，用 python 代码演示如下（python 语言用两个连续星号表示“幂运算”，用百分号表示“取模运算”）：<br>p = 97<br>g = 3</p>
+<p>a = 6<br>b = 21</p>
+<p>A = (g<strong>a) % p<br>B = (g</strong>b) % p</p>
+<p>print((B<strong>a) % p) # 47<br>print((A</strong>b) % p) # 47<br>　　最后打印出来的两个 47 就是双方都计算出了【相同的】结果（这个数值可以用作之后的“会话密钥”）</p>
+<p>　　上面因为是举例，用的数字都比较小。在实战中需要注意如下几点，以降低被攻击的风险。</p>
+<ol>
+<li>p 必须是质数且足够大（至少300位）</li>
+<li>a，b 也要足够大（至少100位），且必须是随机生成。</li>
+<li>g 必须是质数，【不】需要很大，比如 2 或 3 或 5 都可以。g 如果太大并【不能】显著提升安全性，反而会影响性能。</li>
+</ol>
+<h3 id="◇密钥协商的步骤-1"><a href="#◇密钥协商的步骤-1" class="headerlink" title="◇密钥协商的步骤"></a>◇密钥协商的步骤</h3><p>　　（下列步骤只阐述原理，具体的协议细节在下一篇讲）</p>
+<ol>
+<li>客户端先连上服务端</li>
+<li>服务端生成一个随机数 s 作为自己的私钥，然后根据算法参数计算出公钥 S（算法参数通常是固定的）</li>
+<li>服务端使用某种签名算法把“算法参数（模数p，基数g）和服务端公钥S”作为一个整体进行签名</li>
+<li>服务端把“算法参数（模数p，基数g）、服务端公钥S、签名”发送给客户端</li>
+<li>客户端收到后验证签名是否有效</li>
+<li>客户端生成一个随机数 c 作为自己的私钥，然后根据算法参数计算出公钥 C</li>
+<li>客户端把 C 发送给服务端</li>
+<li>客户端和服务端（根据上述 DH 算法）各自计算出 k 作为会话密钥</li>
+</ol>
+<h3 id="◇如何防范偷窥（嗅探）-1"><a href="#◇如何防范偷窥（嗅探）-1" class="headerlink" title="◇如何防范偷窥（嗅探）"></a>◇如何防范偷窥（嗅探）</h3><p>　　嗅探者可以通过监视网络传输，得到算法参数（模数p，基数g）以及双方的公钥，但是【无法】推算出双方的私钥，也【无法】推算出会话密钥（这是由 DH 算法在数学上保证的）</p>
+<h3 id="◇如何防范篡改（假冒身份）-1"><a href="#◇如何防范篡改（假冒身份）-1" class="headerlink" title="◇如何防范篡改（假冒身份）"></a>◇如何防范篡改（假冒身份）</h3><p>　　攻击方式1<br>　　攻击者可以第4步篡改数据（修改算法参数或服务端公钥）。但因为这些信息已经进行过数字签名。篡改之后会被客户端发现。</p>
+<p>　　攻击方式2<br>　　攻击者可以在第7步篡改客户端公钥。这步没有签名，服务端收到数据后不会发现被篡改。但是，攻击者篡改之后会导致“服务端与客户端生成的会话密钥【不一致】”。在后续的通讯步骤中会发现这点，并导致通讯终止。<br>　　（下一篇讲具体协议的时候会提到：协议初始化/握手阶段的末尾，双方都会向对方发送一段“验证性的密文”，这段密文用各自的会话密钥进行【对称】加密，如果双方的会话密钥不一致，这一步就会失败，进而导致握手失败，连接终止）</p>
+<h2 id="★DH-的变种"><a href="#★DH-的变种" class="headerlink" title="★DH 的变种"></a>★DH 的变种</h2><h3 id="◇基于“椭圆曲线”的-ECDH"><a href="#◇基于“椭圆曲线”的-ECDH" class="headerlink" title="◇基于“椭圆曲线”的 ECDH"></a>◇基于“椭圆曲线”的 ECDH</h3><p>　　DH 算法有一个变种，称之为 ECDH（全称是“Elliptic Curve Diffie-Hellman”）。维基条目在“这里”<br>　　它与 DH 类似，差别在于：<br>DH 依赖的是——求解“离散对数问题”的困难。<br>ECDH 依赖的是——求解“椭圆曲线离散对数问题”的困难。</p>
+<p>　　ECDH 的数学原理比 DH 更复杂。考虑到本文读者大都【不是】数学系出身，俺就不展开了。<br>　　ECDH 跟 DH 一样，也是【无认证】的。同样需要跟其它签名算法（比如 RSA、DSA、ECDSA）配合。</p>
+<h3 id="◇对-DH-和-ECDH-进行“临时密钥”的改良——DHE-和-ECDHE"><a href="#◇对-DH-和-ECDH-进行“临时密钥”的改良——DHE-和-ECDHE" class="headerlink" title="◇对 DH 和 ECDH 进行“临时密钥”的改良——DHE 和 ECDHE"></a>◇对 DH 和 ECDH 进行“临时密钥”的改良——DHE 和 ECDHE</h3><p>　　刚才介绍的 DH 和 ECDH，其密钥是持久的（静态的）。也就是说，通讯双方生成各自的密钥之后，就长时间用下去。这么干当然比较省事儿（节约性能），但是存在某种安全隐患——无法做到“前向保密”（洋文是“forward secrecy”）。<br>　　为了做到“前向保密”，采用“临时密钥”（洋文是“ephemeral key”）的方式对 DH 和 ECDH 进行改良。于是得到两种新的算法——DHE 和 ECDHE。（这两种新算法的名称，就是在原有名称后面加上字母 E 表示 ephemeral）。其实算法还是一样的，只是对每个会话都要重新协商一次密钥，且密钥用完就丢弃。<br>　　（估计很多同学不太了解“前向保密”这个概念。俺会在本系列中单独开一帖，介绍“前向保密”的概念及其好处）</p>
+<h2 id="★基于-PSK-的密钥协商"><a href="#★基于-PSK-的密钥协商" class="headerlink" title="★基于 PSK 的密钥协商"></a>★基于 PSK 的密钥协商</h2><h3 id="◇概述-2"><a href="#◇概述-2" class="headerlink" title="◇概述"></a>◇概述</h3><p>　　PSK 是洋文“Pre-Shared Key”的缩写。顾名思义，就是【预先】让通讯双方共享一些密钥（通常是【对称加密】的密钥）。所谓的【预先】，就是说，这些密钥在 TLS 连接尚未建立之前，就已经部署在通讯双方的系统内了。<br>　　这种算法用的不多，它的好处是：</p>
+<ol>
+<li>不需要依赖公钥体系，不需要部属 CA 证书。</li>
+<li>不需要涉及非对称加密，TLS 协议握手（初始化）时的性能好于前述的 RSA 和 DH。<br>　　更多介绍可以参见维基百科，链接在“这里”。</li>
+</ol>
+<h3 id="◇密钥协商的步骤-2"><a href="#◇密钥协商的步骤-2" class="headerlink" title="◇密钥协商的步骤"></a>◇密钥协商的步骤</h3><p>（由于 PSK 用的不多，下面只简单介绍一下步骤，让大伙儿明白其原理）</p>
+<p>　　在通讯【之前】，通讯双方已经预先部署了若干个共享的密钥。<br>　　为了标识多个密钥，给每一个密钥定义一个唯一的 ID<br>　　协商的过程很简单：客户端把自己选好的密钥的 ID 告诉服务端。<br>　　如果服务端在自己的密钥池子中找到这个 ID，就用对应的密钥与客户端通讯；否则就报错并中断连接。</p>
+<h3 id="◇如何防范偷窥（嗅探）-2"><a href="#◇如何防范偷窥（嗅探）-2" class="headerlink" title="◇如何防范偷窥（嗅探）"></a>◇如何防范偷窥（嗅探）</h3><p>　　使用这种算法，在协商密钥的过程中交换的是密钥的标识（ID）而【不是】密钥本身。<br>　　就算攻击者监视了全过程，也无法知晓密钥啥。</p>
+<h3 id="◇如何防范篡改（假冒身份）-2"><a href="#◇如何防范篡改（假冒身份）-2" class="headerlink" title="◇如何防范篡改（假冒身份）"></a>◇如何防范篡改（假冒身份）</h3><p>　　PSK 可以单独使用，也可以搭配签名算法一起使用。<br>　　对于单独使用<br>　　如果攻击者篡改了协商过程中传送的密钥 ID，要么服务端发现 ID 无效（协商失败），要么服务端得到的 ID 与客户端不一致，在后续的通讯步骤中也会发现，并导致通讯终止。<br>　　（下一篇讲具体协议的时候会提到：协议初始化/握手阶段的末尾，双方都会向对方发送一段“验证性的密文”，这段密文用各自的会话密钥进行【对称】加密，如果双方的会话密钥不一致，这一步就会失败，进而导致握手失败，连接终止）</p>
+<p>　　对于搭配签名算法<br>　　如果攻击者篡改了协商过程中传送的密钥 ID，验证签名会失败</p>
+<h3 id="◇补充说明"><a href="#◇补充说明" class="headerlink" title="◇补充说明"></a>◇补充说明</h3><p>　　PSK 与 RSA 具有某种相似性——既可以用来搞“密钥协商”，也可以用来搞“身份认证”。<br>　　所以，PSK 可以跟 DH（及其变种）进行组合。例如：DHE-PSK、ECDHE-PSK<br>　　关于 PSK 的更多细节，可以参见 RFC4279</p>
+<h2 id="★基于-SRP-的密钥协商"><a href="#★基于-SRP-的密钥协商" class="headerlink" title="★基于 SRP 的密钥协商"></a>★基于 SRP 的密钥协商</h2><h3 id="◇概述-3"><a href="#◇概述-3" class="headerlink" title="◇概述"></a>◇概述</h3><p>　　SRP 是洋文“Secure Remote Password”的缩写。这个算法有点类似于刚才提到的 PSK——只不过 client/server 双方共享的是比较人性化的密码（password）而不是密钥（key）。该算法采用了一些机制（盐/salt、随机数）来防范“嗅探/sniffer”或“字典猜解攻击”或“重放攻击”。<br>　　这个算法应该用得很少——OpenSSL 直到2012年才开始支持该算法。所以俺这里就不展开了。有兴趣的同学可以去看 RFC2945 的协议描述。</p>
+<h3 id="◇密钥协商的步骤-3"><a href="#◇密钥协商的步骤-3" class="headerlink" title="◇密钥协商的步骤"></a>◇密钥协商的步骤</h3><p>　　（由于 SRP 用的不多，俺偷懒一下，略去此小节）</p>
+<h2 id="★各种组合的一览表"><a href="#★各种组合的一览表" class="headerlink" title="★各种组合的一览表"></a>★各种组合的一览表</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yuluhuang.github.io/2016/10/07/ssl-tls/" data-id="cjso2qz670032dn31crimfwmz" class="article-share-link">Share</a>
+      
+        <a href="http://yuluhuang.github.io/2016/10/07/ssl-tls/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https/">https</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssl/">ssl</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tls/">tls</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a><span class="category-list-count">26</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/">ReactJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular2/">angular2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/e2e/">e2e</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ebook/">ebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/echarts/">echarts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elasticsearch/">elasticsearch</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mean/">mean</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/">mongo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ng2/">ng2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/">requirejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solr/">solr</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/">ssl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tls/">tls</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/">vpn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-持续更新/">vue[持续更新]</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weixin/">weixin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zookeeper/">zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻譯/">翻譯</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ReactJS/" style="font-size: 10px;">ReactJS</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/auth/" style="font-size: 10px;">auth</a> <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/e2e/" style="font-size: 10px;">e2e</a> <a href="/tags/ebook/" style="font-size: 10px;">ebook</a> <a href="/tags/echarts/" style="font-size: 10px;">echarts</a> <a href="/tags/elasticsearch/" style="font-size: 13.33px;">elasticsearch</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/kafka/" style="font-size: 10px;">kafka</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mean/" style="font-size: 10px;">mean</a> <a href="/tags/mongo/" style="font-size: 13.33px;">mongo</a> <a href="/tags/mongodb/" style="font-size: 13.33px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ng2/" style="font-size: 10px;">ng2</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nosql/" style="font-size: 10px;">nosql</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a> <a href="/tags/solr/" style="font-size: 13.33px;">solr</a> <a href="/tags/ssh/" style="font-size: 13.33px;">ssh</a> <a href="/tags/ssl/" style="font-size: 10px;">ssl</a> <a href="/tags/tls/" style="font-size: 10px;">tls</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue-持续更新/" style="font-size: 10px;">vue[持续更新]</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/翻譯/" style="font-size: 10px;">翻譯</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/28/Deploying-ReactJS-With-Docker/">Deploying ReactJS With Docker</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/28/elasticsearch-kafka-zookeeper-frp-案例/">elasticsearch + kafka + zookeeper + frp 案例</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/28/通过-nginx-配置基本的安全验证/">通过 nginx 配置基本的安全验证</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/28/mysql-with-docker/">mysql with docker</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/14/docker-使用场景之测试/">docker 使用场景之测试</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 luhuang yu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/index.html" class="mobile-nav-link">about</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'yuluhuanghexo';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

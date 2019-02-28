@@ -1,0 +1,43 @@
+﻿/* TEAM */
+	Chef: 余芦煌
+	Contact: 504367857@qq.com
+	From: WenZhou ,China
+
+	UI developer: 
+	Twitter:
+	From:
+
+	One eyed illustrator: 
+	Twitter:
+	From:
+
+	Standard Man: 
+	Twitter: 
+	From:
+
+	Web designer: 
+	Twitter: 
+	From:
+
+
+
+/* THANKS */
+	your will my hands
+	Continuous development， not episodic
+
+	(First) EN Translator: 
+	Twitter:
+	From: 
+
+	CA Translator: 
+	Twitter:
+	From:
+
+
+
+
+/* SITE */
+	Last update:
+	Language: Chinese
+	Doctype:HTML5
+	IDE: Sublime Text
