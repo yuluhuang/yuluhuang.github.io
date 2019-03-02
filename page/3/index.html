@@ -72,6 +72,130 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ssl-tls" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/07/ssl-tls/" class="article-date">
+  <time datetime="2016-10-07T12:30:00.000Z" itemprop="datePublished">2016-10-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/07/ssl-tls/">https ssl/tls</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>转：<a href="https://program-think.blogspot.com/2016/09/https-ssl-tls-3.html" target="_blank" rel="noopener">https://program-think.blogspot.com/2016/09/https-ssl-tls-3.html</a></p>
+<h2 id="★密钥交换-协商机制要达到啥目的？"><a href="#★密钥交换-协商机制要达到啥目的？" class="headerlink" title="★密钥交换/协商机制要达到啥目的？"></a>★密钥交换/协商机制要达到啥目的？</h2><p>　　前一篇介绍了 SSL/TLS 的身份认证机制。这个机制是为了防止攻击者通过【篡改】网络传输数据，来假冒身份，以达到“中间人攻击/MITM”的目的。<br>　　而今天要聊的“密钥协商机制”是：（在身份认证的前提下）如何规避【偷窥】的风险。<br>　　通俗地说，即使有攻击者在偷窥你与服务器的网络传输，客户端（client）依然可以利用“密钥协商机制”与服务器端（server）协商出一个用来加密应用层数据的密钥（也称“会话密钥”）。</p>
+<h2 id="★密钥交换-协商机制的几种类型"><a href="#★密钥交换-协商机制的几种类型" class="headerlink" title="★密钥交换/协商机制的几种类型"></a>★密钥交换/协商机制的几种类型</h2><p>　　俺总结了一下，大致有如下几种类型：</p>
+<h3 id="◇依靠非对称加密算法"><a href="#◇依靠非对称加密算法" class="headerlink" title="◇依靠非对称加密算法"></a>◇依靠非对称加密算法</h3><p>　　原理：<br>　　拿到公钥的一方先生成随机的会话密钥，然后利用公钥加密它；再把加密结果发给对方，对方用私钥解密；于是双方都得到了会话密钥。</p>
+<p>　　举例：<br>　　<code>RSA</code></p>
+<h3 id="◇依靠专门的密钥交换算法"><a href="#◇依靠专门的密钥交换算法" class="headerlink" title="◇依靠专门的密钥交换算法"></a>◇依靠专门的密钥交换算法</h3><p>　　原理：<br>　　这个原理比较复杂，一两句话说不清楚，待会儿聊到 DH 的那个章节会详谈。</p>
+<p>　　举例：<br>　　<code>DH 算法及其变种</code></p>
+<h3 id="◇依靠通讯双方事先已经共享的“秘密”"><a href="#◇依靠通讯双方事先已经共享的“秘密”" class="headerlink" title="◇依靠通讯双方事先已经共享的“秘密”"></a>◇依靠通讯双方事先已经共享的“秘密”</h3><p>　　原理：<br>　　既然双方已经有共享的秘密（这个“秘密”可能已经是一个密钥，也可能只是某个密码/password），只需要根据某种生成算法，就可以让双方产生相同的密钥（并且密钥长度可以任意指定）</p>
+<p>　　举例：<br>　　<code>PSK 和 SRP（可能很多同学没听过这俩玩意儿。别担心，本文后续部分有介绍）</code></p>
+<h2 id="★基于-RSA-的密钥协商"><a href="#★基于-RSA-的密钥协商" class="headerlink" title="★基于 RSA 的密钥协商"></a>★基于 RSA 的密钥协商</h2><h3 id="◇概述"><a href="#◇概述" class="headerlink" title="◇概述"></a>◇概述</h3><p>　　这大概是 SSL 最古老的密钥协商方式——早期的 SSLv2 只支持一种密钥协商机制，就是它。（前一篇）介绍身份认证重要性的时候，也是拿 RSA 来演示。<br>　　RSA 是一种【非】对称加密算法。在本系列第1篇的背景知识介绍中，已经聊过这种算法的特点——加密和解密用使用【不同的】密钥。并且“非对称加密算法”既可以用来做“加密/解密”，还可以用来做“数字签名”。</p>
+<h3 id="◇密钥协商的步骤"><a href="#◇密钥协商的步骤" class="headerlink" title="◇密钥协商的步骤"></a>◇密钥协商的步骤</h3><p>　　（下列步骤只阐述原理，具体的协议细节在下一篇讲）</p>
+<ol>
+<li>客户端连上服务端</li>
+<li>服务端发送 CA 证书给客户端</li>
+<li>客户端验证该证书的可靠性</li>
+<li>客户端从 CA 证书中取出公钥</li>
+<li>客户端生成一个随机密钥 k，并用这个公钥加密得到 k’</li>
+<li>客户端把 k’ 发送给服务端</li>
+<li>服务端收到 k’ 后用自己的私钥解密得到 k</li>
+<li>此时双方都得到了密钥 k，协商完成。</li>
+</ol>
+<h3 id="◇如何防范偷窥（嗅探）"><a href="#◇如何防范偷窥（嗅探）" class="headerlink" title="◇如何防范偷窥（嗅探）"></a>◇如何防范偷窥（嗅探）</h3><p>　　攻击方式1<br>　　攻击者虽然可以监视网络流量并拿到公钥，但是【无法】通过公钥推算出私钥（这点由 RSA 算法保证）</p>
+<p>　　攻击方式2<br>　　攻击者虽然可以监视网络流量并拿到 k’，但是攻击者没有私钥，【无法解密】 k’，因此也就无法得到 k</p>
+<h3 id="◇如何防范篡改（假冒身份）"><a href="#◇如何防范篡改（假冒身份）" class="headerlink" title="◇如何防范篡改（假冒身份）"></a>◇如何防范篡改（假冒身份）</h3><p>　　攻击方式1<br>　　如果攻击者在第2步篡改数据，伪造了证书，那么客户端在第3步会发现（这点由证书体系保证）</p>
+<p>　　攻击方式2<br>　　如果攻击者在第6步篡改数据，伪造了k’，那么服务端收到假的k’之后，解密会失败（这点由 RSA 算法保证）。服务端就知道被攻击了。</p>
+<h2 id="★基于-DH-的密钥协商"><a href="#★基于-DH-的密钥协商" class="headerlink" title="★基于 DH 的密钥协商"></a>★基于 DH 的密钥协商</h2><h3 id="◇概述-1"><a href="#◇概述-1" class="headerlink" title="◇概述"></a>◇概述</h3><p>　　DH 算法又称“Diffie–Hellman 算法”。这是两位数学牛人的名称，他们创立了这个算法。该算法用来实现【安全的】“密钥交换”。它可以做到——“通讯双方在完全没有对方任何预先信息的条件下通过不安全信道创建起一个密钥”。这句话比较绕口，通俗地说，可以归结为两个优点：</p>
+<ol>
+<li>通讯双方事先【不】需要有共享的秘密。</li>
+<li>用该算法协商密码，即使协商过程中被别人全程偷窥（比如“网络嗅探”），偷窥者也【无法】知道协商得出的密钥是啥。</li>
+</ol>
+<p>　　但是 DH 算法本身也有缺点——它不支持认证。也就是说：它虽然可以对抗“偷窥”，却无法对抗“篡改”，自然也就无法对抗“中间人攻击/MITM”（在本系列的前一篇，俺已经强调过了——缺乏身份认证，【必定会】遭到“中间人攻击/MITM”）。<br>　　为了避免遭遇 MITM 攻击，DH 需要与其它签名算法（比如 RSA、DSA、ECDSA）配合——靠签名算法帮忙来进行身份认证。当 DH 与 RSA 配合使用，称之为“DH-RSA”，与 DSA 配合则称为“DH-DSA”，以此类推<br>　　反之，如果 DH 【没有】配合某种签名算法，则称为“DH-ANON”（ANON 是洋文“匿名”的简写）。此时会遭遇“中间人攻击/MITM”。（具体的中间人攻击手法，可以参见本系列前一篇）</p>
+<p>　　关于该算法的更多介绍，可以参见维基百科（这个条目）。</p>
+<h3 id="◇数学原理"><a href="#◇数学原理" class="headerlink" title="◇数学原理"></a>◇数学原理</h3><p>　　（如果你属于那种“看了数学公式就犯晕的人”，可以直接略过本小节，不影响你看后续的章节）</p>
+<p>　　从概念上讲：DH 依赖的是：求解“离散对数问题”的复杂性。具体的算法如下：<br>　　通讯双方（张三、李四）需要先约定好算法参数（algorithm parameters）：一个素数 p 作为模数，一个素数 g 作为基数（g 也称为“生成元”）。这两个算法参数是可以对外公开滴。<br>　　对于张三而言，需要先想好一个秘密的自然数 a 作为私钥（不能公开），然后计算 A = ga mod p 作为自己的公钥（可以公开）。<br>　　对李四而言也类似，先想好一个秘密的自然数 b 作为私钥（不能公开），然后计算 B = gb mod p 作为自己的公钥（可以公开）。<br>　　张三和李四互相交换各自的公钥。<br>　　然后张三计算出 k = Ba mod p，李四计算出 k = Ab mod p</p>
+<p>　　该算法至少确保了如下几点：</p>
+<ol>
+<li>张三和李四分别计算出来的 k 必定是一致的</li>
+<li>张三和李四都无法根据已知的数来推算出对方的私钥（张三无法推算出 b，李四无法推算出 a）</li>
+<li>对于一个旁观者（偷窥者），虽然能看到 p，g，A，B，但是无法推算出 a 和 b（就是说，旁观者无法推算出双方的私钥），自然也无法推算出 k</li>
+</ol>
+<p>　　举例<br>　　前面说得都是符号，比较抽象。下面拿具体数字举例：<br>假设约定的算法参数：模数是 97，基数是 3<br>张三用的私钥是 6，李四用的私钥是 21，用 python 代码演示如下（python 语言用两个连续星号表示“幂运算”，用百分号表示“取模运算”）：<br>p = 97<br>g = 3</p>
+<p>a = 6<br>b = 21</p>
+<p>A = (g<strong>a) % p<br>B = (g</strong>b) % p</p>
+<p>print((B<strong>a) % p) # 47<br>print((A</strong>b) % p) # 47<br>　　最后打印出来的两个 47 就是双方都计算出了【相同的】结果（这个数值可以用作之后的“会话密钥”）</p>
+<p>　　上面因为是举例，用的数字都比较小。在实战中需要注意如下几点，以降低被攻击的风险。</p>
+<ol>
+<li>p 必须是质数且足够大（至少300位）</li>
+<li>a，b 也要足够大（至少100位），且必须是随机生成。</li>
+<li>g 必须是质数，【不】需要很大，比如 2 或 3 或 5 都可以。g 如果太大并【不能】显著提升安全性，反而会影响性能。</li>
+</ol>
+<h3 id="◇密钥协商的步骤-1"><a href="#◇密钥协商的步骤-1" class="headerlink" title="◇密钥协商的步骤"></a>◇密钥协商的步骤</h3><p>　　（下列步骤只阐述原理，具体的协议细节在下一篇讲）</p>
+<ol>
+<li>客户端先连上服务端</li>
+<li>服务端生成一个随机数 s 作为自己的私钥，然后根据算法参数计算出公钥 S（算法参数通常是固定的）</li>
+<li>服务端使用某种签名算法把“算法参数（模数p，基数g）和服务端公钥S”作为一个整体进行签名</li>
+<li>服务端把“算法参数（模数p，基数g）、服务端公钥S、签名”发送给客户端</li>
+<li>客户端收到后验证签名是否有效</li>
+<li>客户端生成一个随机数 c 作为自己的私钥，然后根据算法参数计算出公钥 C</li>
+<li>客户端把 C 发送给服务端</li>
+<li>客户端和服务端（根据上述 DH 算法）各自计算出 k 作为会话密钥</li>
+</ol>
+<h3 id="◇如何防范偷窥（嗅探）-1"><a href="#◇如何防范偷窥（嗅探）-1" class="headerlink" title="◇如何防范偷窥（嗅探）"></a>◇如何防范偷窥（嗅探）</h3><p>　　嗅探者可以通过监视网络传输，得到算法参数（模数p，基数g）以及双方的公钥，但是【无法】推算出双方的私钥，也【无法】推算出会话密钥（这是由 DH 算法在数学上保证的）</p>
+<h3 id="◇如何防范篡改（假冒身份）-1"><a href="#◇如何防范篡改（假冒身份）-1" class="headerlink" title="◇如何防范篡改（假冒身份）"></a>◇如何防范篡改（假冒身份）</h3><p>　　攻击方式1<br>　　攻击者可以第4步篡改数据（修改算法参数或服务端公钥）。但因为这些信息已经进行过数字签名。篡改之后会被客户端发现。</p>
+<p>　　攻击方式2<br>　　攻击者可以在第7步篡改客户端公钥。这步没有签名，服务端收到数据后不会发现被篡改。但是，攻击者篡改之后会导致“服务端与客户端生成的会话密钥【不一致】”。在后续的通讯步骤中会发现这点，并导致通讯终止。<br>　　（下一篇讲具体协议的时候会提到：协议初始化/握手阶段的末尾，双方都会向对方发送一段“验证性的密文”，这段密文用各自的会话密钥进行【对称】加密，如果双方的会话密钥不一致，这一步就会失败，进而导致握手失败，连接终止）</p>
+<h2 id="★DH-的变种"><a href="#★DH-的变种" class="headerlink" title="★DH 的变种"></a>★DH 的变种</h2><h3 id="◇基于“椭圆曲线”的-ECDH"><a href="#◇基于“椭圆曲线”的-ECDH" class="headerlink" title="◇基于“椭圆曲线”的 ECDH"></a>◇基于“椭圆曲线”的 ECDH</h3><p>　　DH 算法有一个变种，称之为 ECDH（全称是“Elliptic Curve Diffie-Hellman”）。维基条目在“这里”<br>　　它与 DH 类似，差别在于：<br>DH 依赖的是——求解“离散对数问题”的困难。<br>ECDH 依赖的是——求解“椭圆曲线离散对数问题”的困难。</p>
+<p>　　ECDH 的数学原理比 DH 更复杂。考虑到本文读者大都【不是】数学系出身，俺就不展开了。<br>　　ECDH 跟 DH 一样，也是【无认证】的。同样需要跟其它签名算法（比如 RSA、DSA、ECDSA）配合。</p>
+<h3 id="◇对-DH-和-ECDH-进行“临时密钥”的改良——DHE-和-ECDHE"><a href="#◇对-DH-和-ECDH-进行“临时密钥”的改良——DHE-和-ECDHE" class="headerlink" title="◇对 DH 和 ECDH 进行“临时密钥”的改良——DHE 和 ECDHE"></a>◇对 DH 和 ECDH 进行“临时密钥”的改良——DHE 和 ECDHE</h3><p>　　刚才介绍的 DH 和 ECDH，其密钥是持久的（静态的）。也就是说，通讯双方生成各自的密钥之后，就长时间用下去。这么干当然比较省事儿（节约性能），但是存在某种安全隐患——无法做到“前向保密”（洋文是“forward secrecy”）。<br>　　为了做到“前向保密”，采用“临时密钥”（洋文是“ephemeral key”）的方式对 DH 和 ECDH 进行改良。于是得到两种新的算法——DHE 和 ECDHE。（这两种新算法的名称，就是在原有名称后面加上字母 E 表示 ephemeral）。其实算法还是一样的，只是对每个会话都要重新协商一次密钥，且密钥用完就丢弃。<br>　　（估计很多同学不太了解“前向保密”这个概念。俺会在本系列中单独开一帖，介绍“前向保密”的概念及其好处）</p>
+<h2 id="★基于-PSK-的密钥协商"><a href="#★基于-PSK-的密钥协商" class="headerlink" title="★基于 PSK 的密钥协商"></a>★基于 PSK 的密钥协商</h2><h3 id="◇概述-2"><a href="#◇概述-2" class="headerlink" title="◇概述"></a>◇概述</h3><p>　　PSK 是洋文“Pre-Shared Key”的缩写。顾名思义，就是【预先】让通讯双方共享一些密钥（通常是【对称加密】的密钥）。所谓的【预先】，就是说，这些密钥在 TLS 连接尚未建立之前，就已经部署在通讯双方的系统内了。<br>　　这种算法用的不多，它的好处是：</p>
+<ol>
+<li>不需要依赖公钥体系，不需要部属 CA 证书。</li>
+<li>不需要涉及非对称加密，TLS 协议握手（初始化）时的性能好于前述的 RSA 和 DH。<br>　　更多介绍可以参见维基百科，链接在“这里”。</li>
+</ol>
+<h3 id="◇密钥协商的步骤-2"><a href="#◇密钥协商的步骤-2" class="headerlink" title="◇密钥协商的步骤"></a>◇密钥协商的步骤</h3><p>（由于 PSK 用的不多，下面只简单介绍一下步骤，让大伙儿明白其原理）</p>
+<p>　　在通讯【之前】，通讯双方已经预先部署了若干个共享的密钥。<br>　　为了标识多个密钥，给每一个密钥定义一个唯一的 ID<br>　　协商的过程很简单：客户端把自己选好的密钥的 ID 告诉服务端。<br>　　如果服务端在自己的密钥池子中找到这个 ID，就用对应的密钥与客户端通讯；否则就报错并中断连接。</p>
+<h3 id="◇如何防范偷窥（嗅探）-2"><a href="#◇如何防范偷窥（嗅探）-2" class="headerlink" title="◇如何防范偷窥（嗅探）"></a>◇如何防范偷窥（嗅探）</h3><p>　　使用这种算法，在协商密钥的过程中交换的是密钥的标识（ID）而【不是】密钥本身。<br>　　就算攻击者监视了全过程，也无法知晓密钥啥。</p>
+<h3 id="◇如何防范篡改（假冒身份）-2"><a href="#◇如何防范篡改（假冒身份）-2" class="headerlink" title="◇如何防范篡改（假冒身份）"></a>◇如何防范篡改（假冒身份）</h3><p>　　PSK 可以单独使用，也可以搭配签名算法一起使用。<br>　　对于单独使用<br>　　如果攻击者篡改了协商过程中传送的密钥 ID，要么服务端发现 ID 无效（协商失败），要么服务端得到的 ID 与客户端不一致，在后续的通讯步骤中也会发现，并导致通讯终止。<br>　　（下一篇讲具体协议的时候会提到：协议初始化/握手阶段的末尾，双方都会向对方发送一段“验证性的密文”，这段密文用各自的会话密钥进行【对称】加密，如果双方的会话密钥不一致，这一步就会失败，进而导致握手失败，连接终止）</p>
+<p>　　对于搭配签名算法<br>　　如果攻击者篡改了协商过程中传送的密钥 ID，验证签名会失败</p>
+<h3 id="◇补充说明"><a href="#◇补充说明" class="headerlink" title="◇补充说明"></a>◇补充说明</h3><p>　　PSK 与 RSA 具有某种相似性——既可以用来搞“密钥协商”，也可以用来搞“身份认证”。<br>　　所以，PSK 可以跟 DH（及其变种）进行组合。例如：DHE-PSK、ECDHE-PSK<br>　　关于 PSK 的更多细节，可以参见 RFC4279</p>
+<h2 id="★基于-SRP-的密钥协商"><a href="#★基于-SRP-的密钥协商" class="headerlink" title="★基于 SRP 的密钥协商"></a>★基于 SRP 的密钥协商</h2><h3 id="◇概述-3"><a href="#◇概述-3" class="headerlink" title="◇概述"></a>◇概述</h3><p>　　SRP 是洋文“Secure Remote Password”的缩写。这个算法有点类似于刚才提到的 PSK——只不过 client/server 双方共享的是比较人性化的密码（password）而不是密钥（key）。该算法采用了一些机制（盐/salt、随机数）来防范“嗅探/sniffer”或“字典猜解攻击”或“重放攻击”。<br>　　这个算法应该用得很少——OpenSSL 直到2012年才开始支持该算法。所以俺这里就不展开了。有兴趣的同学可以去看 RFC2945 的协议描述。</p>
+<h3 id="◇密钥协商的步骤-3"><a href="#◇密钥协商的步骤-3" class="headerlink" title="◇密钥协商的步骤"></a>◇密钥协商的步骤</h3><p>　　（由于 SRP 用的不多，俺偷懒一下，略去此小节）</p>
+<h2 id="★各种组合的一览表"><a href="#★各种组合的一览表" class="headerlink" title="★各种组合的一览表"></a>★各种组合的一览表</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yuluhuang.github.io/2016/10/07/ssl-tls/" data-id="cjsrif7ii00420u3165wgrn8x" class="article-share-link">Share</a>
+      
+        <a href="http://yuluhuang.github.io/2016/10/07/ssl-tls/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https/">https</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssl/">ssl</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tls/">tls</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-vue" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/04/10/vue/" class="article-date">
@@ -169,7 +293,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yuluhuang.github.io/2016/04/10/vue/" data-id="cjso2qz4u000ydn31bekjqzs3" class="article-share-link">Share</a>
+      <a data-url="http://yuluhuang.github.io/2016/04/10/vue/" data-id="cjsrif7h900190u31n4du837t" class="article-share-link">Share</a>
       
         <a href="http://yuluhuang.github.io/2016/04/10/vue/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -245,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yuluhuang.github.io/2016/03/19/Hexo使用攻略/" data-id="cjso2qz630030dn31wkcue1il" class="article-share-link">Share</a>
+      <a data-url="http://yuluhuang.github.io/2016/03/19/Hexo使用攻略/" data-id="cjsrif7ig00410u31zu7ggf3u" class="article-share-link">Share</a>
       
         <a href="http://yuluhuang.github.io/2016/03/19/Hexo使用攻略/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -313,7 +437,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yuluhuang.github.io/2016/03/19/grunt-requirejs-angularjs/" data-id="cjso2qz4j000ldn31u1lki0f3" class="article-share-link">Share</a>
+      <a data-url="http://yuluhuang.github.io/2016/03/19/grunt-requirejs-angularjs/" data-id="cjsrif7h2000w0u31gdqbql46" class="article-share-link">Share</a>
       
         <a href="http://yuluhuang.github.io/2016/03/19/grunt-requirejs-angularjs/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -379,7 +503,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yuluhuang.github.io/2016/03/18/Running-MongoDB-on-Windows/" data-id="cjso2qz3u0008dn31xec29rwr" class="article-share-link">Share</a>
+      <a data-url="http://yuluhuang.github.io/2016/03/18/Running-MongoDB-on-Windows/" data-id="cjsrif7gi000a0u31oy8tg21b" class="article-share-link">Share</a>
       
         <a href="http://yuluhuang.github.io/2016/03/18/Running-MongoDB-on-Windows/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -616,7 +740,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yuluhuang.github.io/2016/03/17/hexo搭建转载/" data-id="cjso2qz6s003cdn31mler54uo" class="article-share-link">Share</a>
+      <a data-url="http://yuluhuang.github.io/2016/03/17/hexo搭建转载/" data-id="cjsrif7iu004d0u313hwu0d0n" class="article-share-link">Share</a>
       
         <a href="http://yuluhuang.github.io/2016/03/17/hexo搭建转载/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -671,7 +795,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yuluhuang.github.io/2016/03/16/hexoUpBlog/" data-id="cjso2qz4m000pdn31k1704bxn" class="article-share-link">Share</a>
+      <a data-url="http://yuluhuang.github.io/2016/03/16/hexoUpBlog/" data-id="cjsrif7h0000u0u31x29u7f0i" class="article-share-link">Share</a>
       
         <a href="http://yuluhuang.github.io/2016/03/16/hexoUpBlog/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -698,7 +822,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a><span class="category-list-count">26</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a><span class="category-list-count">27</span></li></ul>
     </div>
   </div>
 
@@ -707,7 +831,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/">ReactJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular2/">angular2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/e2e/">e2e</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ebook/">ebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/echarts/">echarts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elasticsearch/">elasticsearch</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mean/">mean</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/">mongo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ng2/">ng2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/">requirejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solr/">solr</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/">ssl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tls/">tls</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/">vpn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-持续更新/">vue[持续更新]</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weixin/">weixin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zookeeper/">zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻譯/">翻譯</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/">ReactJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular2/">angular2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/e2e/">e2e</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ebook/">ebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/echarts/">echarts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elasticsearch/">elasticsearch</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mean/">mean</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/">mongo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ng2/">ng2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/">requirejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solr/">solr</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/">ssl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tls/">tls</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/">vpn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-持续更新/">vue[持续更新]</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weixin/">weixin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zookeeper/">zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻譯/">翻譯</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -716,7 +840,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ReactJS/" style="font-size: 10px;">ReactJS</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/auth/" style="font-size: 10px;">auth</a> <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/e2e/" style="font-size: 10px;">e2e</a> <a href="/tags/ebook/" style="font-size: 10px;">ebook</a> <a href="/tags/echarts/" style="font-size: 10px;">echarts</a> <a href="/tags/elasticsearch/" style="font-size: 13.33px;">elasticsearch</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/kafka/" style="font-size: 10px;">kafka</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mean/" style="font-size: 10px;">mean</a> <a href="/tags/mongo/" style="font-size: 13.33px;">mongo</a> <a href="/tags/mongodb/" style="font-size: 13.33px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ng2/" style="font-size: 10px;">ng2</a> <a href="/tags/nginx/" style="font-size: 13.33px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nosql/" style="font-size: 10px;">nosql</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a> <a href="/tags/solr/" style="font-size: 13.33px;">solr</a> <a href="/tags/ssh/" style="font-size: 13.33px;">ssh</a> <a href="/tags/ssl/" style="font-size: 10px;">ssl</a> <a href="/tags/tls/" style="font-size: 10px;">tls</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue-持续更新/" style="font-size: 10px;">vue[持续更新]</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/翻譯/" style="font-size: 10px;">翻譯</a>
+      <a href="/tags/ReactJS/" style="font-size: 10px;">ReactJS</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/auth/" style="font-size: 10px;">auth</a> <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/e2e/" style="font-size: 10px;">e2e</a> <a href="/tags/ebook/" style="font-size: 10px;">ebook</a> <a href="/tags/echarts/" style="font-size: 10px;">echarts</a> <a href="/tags/elasticsearch/" style="font-size: 13.33px;">elasticsearch</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/frp/" style="font-size: 13.33px;">frp</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/kafka/" style="font-size: 10px;">kafka</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mean/" style="font-size: 10px;">mean</a> <a href="/tags/mongo/" style="font-size: 13.33px;">mongo</a> <a href="/tags/mongodb/" style="font-size: 13.33px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ng2/" style="font-size: 10px;">ng2</a> <a href="/tags/nginx/" style="font-size: 16.67px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nosql/" style="font-size: 10px;">nosql</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a> <a href="/tags/solr/" style="font-size: 13.33px;">solr</a> <a href="/tags/ssh/" style="font-size: 13.33px;">ssh</a> <a href="/tags/ssl/" style="font-size: 10px;">ssl</a> <a href="/tags/tls/" style="font-size: 10px;">tls</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue-持续更新/" style="font-size: 10px;">vue[持续更新]</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/翻譯/" style="font-size: 10px;">翻譯</a>
     </div>
   </div>
 
@@ -725,7 +849,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -735,6 +859,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/03/02/Visit-Web-With-Frp-and-Nginx/">Visit  Web With Frp and Nginx</a>
+          </li>
         
           <li>
             <a href="/2019/02/28/Deploying-ReactJS-With-Docker/">Deploying ReactJS With Docker</a>
@@ -750,10 +878,6 @@
         
           <li>
             <a href="/2019/02/28/mysql-with-docker/">mysql with docker</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/14/docker-使用场景之测试/">docker 使用场景之测试</a>
           </li>
         
       </ul>
