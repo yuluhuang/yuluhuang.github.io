@@ -72,6 +72,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Creating-a-Mongo-replicaset-using-docker-Mongo-replicaset-Nodejs-Docker-Compose" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/09/Creating-a-Mongo-replicaset-using-docker-Mongo-replicaset-Nodejs-Docker-Compose/" class="article-date">
+  <time datetime="2019-03-09T12:14:58.000Z" itemprop="datePublished">2019-03-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/09/Creating-a-Mongo-replicaset-using-docker-Mongo-replicaset-Nodejs-Docker-Compose/">Creating a Mongo replicaset using docker_ Mongo replicaset + Nodejs + Docker Compose</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考 <a href="https://www.youtube.com/watch?v=mlw7vWISaF4" target="_blank" rel="noopener">https://www.youtube.com/watch?v=mlw7vWISaF4</a></p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">'3'</span></span><br><span class="line">services:</span><br><span class="line">  mongo-rs0-<span class="number">1</span>:</span><br><span class="line">    image: <span class="string">"mongo-start"</span></span><br><span class="line">    build: ./mongo-rs0-<span class="number">1</span></span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">'27017:27017'</span></span><br><span class="line">    volumes:</span><br><span class="line">      - ./mongo-rs0-<span class="number">1</span>/data:/data/db</span><br><span class="line">      - ./mongo-rs0-<span class="number">1</span>/keyfile:/usr/src/configs/keyfile</span><br><span class="line">      - ./mongo-rs0-<span class="number">1</span>/log:/usr/src/configs/logs</span><br><span class="line">      - ./mongo-rs0-<span class="number">1</span>/backup:/usr/src/configs/backup</span><br><span class="line">    depends_on:</span><br><span class="line">      - <span class="string">'mongo-rs0-2'</span></span><br><span class="line">      - <span class="string">'mongo-rs0-3'</span></span><br><span class="line"></span><br><span class="line">  mongo-rs0-<span class="number">2</span>:</span><br><span class="line">    image: <span class="string">'mongo'</span></span><br><span class="line">    build: ./mongo-rs0-<span class="number">2</span></span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">'27018:27017'</span></span><br><span class="line">    volumes:</span><br><span class="line">      - ./mongo-rs0-<span class="number">2</span>/data:/data/db</span><br><span class="line">      - ./mongo-rs0-<span class="number">2</span>/keyfile:/usr/src/configs/keyfile</span><br><span class="line">      - ./mongo-rs0-<span class="number">2</span>/log:/usr/src/configs/logs</span><br><span class="line"></span><br><span class="line">  mongo-rs0-<span class="number">3</span>:</span><br><span class="line">    image: <span class="string">'mongo'</span></span><br><span class="line">    build: ./mongo-rs0-<span class="number">3</span></span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">'27019:27017'</span></span><br><span class="line">    volumes:</span><br><span class="line">      - ./mongo-rs0-<span class="number">3</span>/data:/data/db</span><br><span class="line">      - ./mongo-rs0-<span class="number">3</span>/keyfile:/usr/src/configs/keyfile</span><br><span class="line">      - ./mongo-rs0-<span class="number">3</span>/log:/usr/src/configs/logs</span><br><span class="line"></span><br><span class="line">  setup-rs:</span><br><span class="line">    image: <span class="string">"setup-rs"</span></span><br><span class="line">    build: ./setup</span><br><span class="line">    volumes:</span><br><span class="line">      - ./setup/replicaSet.js:/usr/src/configs/replicaSet.js</span><br><span class="line">      - ./setup/setup.sh:/usr/src/configs/setup.sh</span><br><span class="line">    depends_on:</span><br><span class="line">      - <span class="string">'mongo-rs0-1'</span></span><br></pre></td></tr></table></figure>
+<h3 id="有几个问题"><a href="#有几个问题" class="headerlink" title="有几个问题"></a>有几个问题</h3><p>容器setup-rs执行总是失败，导致副本集无法创建，只能进入容器mongo-rs0-1，执行replicaSet.js里<br>的内容创建副本集<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">rsconf = &#123;</span><br><span class="line">	_id: <span class="string">"rs0"</span>,</span><br><span class="line">	members: [</span><br><span class="line">		&#123;_id: <span class="number">0</span>, host: <span class="string">"mongo-rs0-1:27017"</span>&#125;,</span><br><span class="line">		&#123;_id: <span class="number">1</span>, host: <span class="string">"mongo-rs0-2:27017"</span>&#125;,</span><br><span class="line">		&#123;_id: <span class="number">2</span>, host: <span class="string">"mongo-rs0-3:27017"</span>&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">rs.initiate(rsconf);</span><br><span class="line">rs.conf();</span><br></pre></td></tr></table></figure></p>
+<p>之后创建用户。<br>因为在本地你可以不使用keyfile。如果使用要注意权限问题</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yuluhuang.github.io/2019/03/09/Creating-a-Mongo-replicaset-using-docker-Mongo-replicaset-Nodejs-Docker-Compose/" data-id="cjt1h5qlj0001gl31skjmmx8t" class="article-share-link">Share</a>
+      
+        <a href="http://yuluhuang.github.io/2019/03/09/Creating-a-Mongo-replicaset-using-docker-Mongo-replicaset-Nodejs-Docker-Compose/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker-compose/">docker-compose</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongo/">mongo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/副本集/">副本集</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Visit-Web-With-Frp-and-Nginx" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/02/Visit-Web-With-Frp-and-Nginx/" class="article-date">
@@ -104,17 +152,19 @@
 <li>节约成本</li>
 <li>将闲余的mac电脑利用起来，性能贼好</li>
 <li>通过docker部署</li>
-<li>将数据保存本地，阿里云什么都要钱<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2>原<br><img src="/img/F585D283-C712-42B8-A072-61CF69BCEFBE.png" alt="88a46390f23f75635084ae2f519efddc.png"><br>增加nginx<br><img src="/img/E193FC59-E389-4F9E-942F-585D4FB766F7.png" alt="7eff94988a99a007933afcf1ba88674b.png"></li>
+<li>将数据保存本地，阿里云什么都要钱</li>
 </ol>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>原<br><img src="/img/F585D283-C712-42B8-A072-61CF69BCEFBE.png" alt="88a46390f23f75635084ae2f519efddc.png"><br>增加nginx<br><img src="/img/E193FC59-E389-4F9E-942F-585D4FB766F7.png" alt="7eff94988a99a007933afcf1ba88674b.png"></p>
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
 <li>中间增加frp层可能会造成传输堵塞</li>
 <li>本地环境（网络，电）的稳定性</li>
 </ol>
-<h2 id="待续"><a href="#待续" class="headerlink" title="待续"></a>待续</h2>
+<h2 id="待续"><a href="#待续" class="headerlink" title="待续"></a>待续</h2><p>原计划通过在本地添加3个从库之后直接切换，因为用了docker无法直接加入副本集，<br>所有准备用docker直接创建新副本集，整个数据迁移</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yuluhuang.github.io/2019/03/02/Visit-Web-With-Frp-and-Nginx/" data-id="cjsrif7gd00070u31wh7qtx18" class="article-share-link">Share</a>
+      <a data-url="http://yuluhuang.github.io/2019/03/02/Visit-Web-With-Frp-and-Nginx/" data-id="cjt1h5qme000ugl3126n1ythj" class="article-share-link">Share</a>
       
         <a href="http://yuluhuang.github.io/2019/03/02/Visit-Web-With-Frp-and-Nginx/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -135,7 +185,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
   </div>
 
   </div>
@@ -205,7 +255,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yuluhuang.github.io/2019/02/28/Deploying-ReactJS-With-Docker/" data-id="cjsrif7gx000p0u31vv7thyle" class="article-share-link">Share</a>
+      <a data-url="http://yuluhuang.github.io/2019/02/28/Deploying-ReactJS-With-Docker/" data-id="cjt1h5qm5000ggl31xerg4250" class="article-share-link">Share</a>
       
         <a href="http://yuluhuang.github.io/2019/02/28/Deploying-ReactJS-With-Docker/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -257,7 +307,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yuluhuang.github.io/2019/02/28/elasticsearch-kafka-zookeeper-frp-案例/" data-id="cjsrif7gu000l0u3160wf7hzc" class="article-share-link">Share</a>
+      <a data-url="http://yuluhuang.github.io/2019/02/28/elasticsearch-kafka-zookeeper-frp-案例/" data-id="cjt1h5qmg000xgl3124inw1c4" class="article-share-link">Share</a>
       
         <a href="http://yuluhuang.github.io/2019/02/28/elasticsearch-kafka-zookeeper-frp-案例/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -315,7 +365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yuluhuang.github.io/2019/02/28/通过-nginx-配置基本的安全验证/" data-id="cjsrif7hj001o0u31xu9ibv73" class="article-share-link">Share</a>
+      <a data-url="http://yuluhuang.github.io/2019/02/28/通过-nginx-配置基本的安全验证/" data-id="cjt1h5qmt001ogl31luohp5se" class="article-share-link">Share</a>
       
         <a href="http://yuluhuang.github.io/2019/02/28/通过-nginx-配置基本的安全验证/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -378,7 +428,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yuluhuang.github.io/2019/02/28/mysql-with-docker/" data-id="cjsrif7hg001l0u315q01qjdo" class="article-share-link">Share</a>
+      <a data-url="http://yuluhuang.github.io/2019/02/28/mysql-with-docker/" data-id="cjt1h5qmr001lgl313h9hr23u" class="article-share-link">Share</a>
       
         <a href="http://yuluhuang.github.io/2019/02/28/mysql-with-docker/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -399,7 +449,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
   </div>
 
   </div>
@@ -448,7 +498,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yuluhuang.github.io/2018/10/14/docker-使用场景之测试/" data-id="cjsrif7gp000f0u31d9742tig" class="article-share-link">Share</a>
+      <a data-url="http://yuluhuang.github.io/2018/10/14/docker-使用场景之测试/" data-id="cjt1h5qmh0011gl3135qc7pyz" class="article-share-link">Share</a>
       
         <a href="http://yuluhuang.github.io/2018/10/14/docker-使用场景之测试/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -503,7 +553,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yuluhuang.github.io/2018/10/12/Github-授权登录-让你的网站更轻巧/" data-id="cjsrif7g500030u31cg2emdxd" class="article-share-link">Share</a>
+      <a data-url="http://yuluhuang.github.io/2018/10/12/Github-授权登录-让你的网站更轻巧/" data-id="cjt1h5qlo0003gl31fy8a3jww" class="article-share-link">Share</a>
       
         <a href="http://yuluhuang.github.io/2018/10/12/Github-授权登录-让你的网站更轻巧/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -523,10 +573,6 @@
   <time datetime="2018-09-22T03:37:37.000Z" itemprop="datePublished">2018-09-22</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -554,7 +600,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yuluhuang.github.io/2018/09/22/2018-9-22-记/" data-id="cjsrif7fz00010u31n8no9gi8" class="article-share-link">Share</a>
+      <a data-url="http://yuluhuang.github.io/2018/09/22/2018-9-22-记/" data-id="cjt1h5qlz000bgl31ew5rirzc" class="article-share-link">Share</a>
       
         <a href="http://yuluhuang.github.io/2018/09/22/2018-9-22-记/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -617,111 +663,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yuluhuang.github.io/2018/09/14/MongoDB-读写分离之主从配置/" data-id="cjsrif7ga00050u31og8apc40" class="article-share-link">Share</a>
+      <a data-url="http://yuluhuang.github.io/2018/09/14/MongoDB-读写分离之主从配置/" data-id="cjt1h5qlu0006gl31gwtmgb0m" class="article-share-link">Share</a>
       
         <a href="http://yuluhuang.github.io/2018/09/14/MongoDB-读写分离之主从配置/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongo/">mongo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-react-vs-vue" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/02/react-vs-vue/" class="article-date">
-  <time datetime="2018-05-02T07:45:09.000Z" itemprop="datePublished">2018-05-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/02/react-vs-vue/">react vs vue</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="谷歌趋势"><a href="#谷歌趋势" class="headerlink" title="谷歌趋势"></a>谷歌趋势</h2><p><img src="/img/7D08E09D-41CA-4A5A-B70E-4363263B4C68.png" alt="vue"></p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="vue-由尤雨溪-全职开发"><a href="#vue-由尤雨溪-全职开发" class="headerlink" title="vue 由尤雨溪 全职开发"></a>vue 由尤雨溪 全职开发</h3><h3 id="react-由Facebook-开发"><a href="#react-由Facebook-开发" class="headerlink" title="react 由Facebook 开发"></a>react 由Facebook 开发</h3><h2 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h2><ul>
-<li>支持虚拟dom</li>
-<li>支持组件化开发</li>
-<li>支付单页面应用（spa）</li>
-<li>支持服务端渲染</li>
-</ul>
-<h2 id="差异"><a href="#差异" class="headerlink" title="差异"></a>差异</h2><table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">学习曲线</th>
-<th style="text-align:center">模板</th>
-<th style="text-align:center">star</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">react</td>
-<td style="text-align:center">高</td>
-<td style="text-align:center">jsx</td>
-<td style="text-align:center">92.8K</td>
-</tr>
-<tr>
-<td style="text-align:center">vue</td>
-<td style="text-align:center">底</td>
-<td style="text-align:center">html</td>
-<td style="text-align:center">94.8k</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><img src="/img/0F585F21-929F-4225-82F2-73763D1E5879.png" alt="vue"><br><img src="/img/6B197ACD-98AC-4C51-8A24-7F604A55E666.png" alt="vue"></p>
-<ul>
-<li>vue属于mvvm框架，支持双向绑定</li>
-<li>vue可以单独引入作为库使用</li>
-<li>vue官方维护cli脚手架，自动构建项目，对于中小型快速开发极其有利，大型项目也可以以此为基础</li>
-<li>react 常见的 <code>creact-react-app</code> 脚手架可以创建一个基础项目，个人开源脚手架繁杂，没用官方统一的解决方案</li>
-<li>react 一开始只支持es6, 之后也可以单独使用不过要引入react-dom来解析</li>
-<li>由于react 专注于 view 层，属于单向绑定，todo 为例 react的代码量往往大于vue</li>
-</ul>
-<h2 id="状态管理和数据绑定"><a href="#状态管理和数据绑定" class="headerlink" title="状态管理和数据绑定"></a>状态管理和数据绑定</h2><ul>
-<li>Vue 官方推荐 vuex</li>
-<li>React 常见 redux，mobx, 因为react社区活跃，衍生出各个库，所有没有统一公认的解决方案</li>
-</ul>
-<h2 id="ui"><a href="#ui" class="headerlink" title="ui"></a>ui</h2><p>vue</p>
-<ul>
-<li>Element UI</li>
-</ul>
-<p>React</p>
-<ul>
-<li>Ant design<h2 id="移动端"><a href="#移动端" class="headerlink" title="移动端"></a>移动端</h2></li>
-<li>Vue 有 weex 诟病多</li>
-<li>React 有 react-native 被多数公司采用的移动方案</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yuluhuang.github.io/2018/05/02/react-vs-vue/" data-id="cjsrif7h700150u31srtvzbec" class="article-share-link">Share</a>
-      
-        <a href="http://yuluhuang.github.io/2018/05/02/react-vs-vue/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
 
     </footer>
   </div>
@@ -743,7 +690,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a><span class="category-list-count">27</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/https-yuluhuang-com/">https://yuluhuang.com</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -752,7 +699,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/">ReactJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular2/">angular2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/e2e/">e2e</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ebook/">ebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/echarts/">echarts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elasticsearch/">elasticsearch</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mean/">mean</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/">mongo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ng2/">ng2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/">requirejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solr/">solr</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/">ssl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tls/">tls</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/">vpn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-持续更新/">vue[持续更新]</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weixin/">weixin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zookeeper/">zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻譯/">翻譯</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/">ReactJS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular2/">angular2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angularjs/">angularjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/">auth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-compose/">docker-compose</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/e2e/">e2e</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/echarts/">echarts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/elasticsearch/">elasticsearch</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/">map</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mean/">mean</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongo/">mongo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ng2/">ng2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nosql/">nosql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/">requirejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solr/">solr</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/">ssl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tls/">tls</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/">vpn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-持续更新/">vue[持续更新]</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weixin/">weixin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/">windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zookeeper/">zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/副本集/">副本集</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测试/">测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/翻譯/">翻譯</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -761,7 +708,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ReactJS/" style="font-size: 10px;">ReactJS</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/auth/" style="font-size: 10px;">auth</a> <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/e2e/" style="font-size: 10px;">e2e</a> <a href="/tags/ebook/" style="font-size: 10px;">ebook</a> <a href="/tags/echarts/" style="font-size: 10px;">echarts</a> <a href="/tags/elasticsearch/" style="font-size: 13.33px;">elasticsearch</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/frp/" style="font-size: 13.33px;">frp</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/kafka/" style="font-size: 10px;">kafka</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mean/" style="font-size: 10px;">mean</a> <a href="/tags/mongo/" style="font-size: 13.33px;">mongo</a> <a href="/tags/mongodb/" style="font-size: 13.33px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ng2/" style="font-size: 10px;">ng2</a> <a href="/tags/nginx/" style="font-size: 16.67px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nosql/" style="font-size: 10px;">nosql</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a> <a href="/tags/solr/" style="font-size: 13.33px;">solr</a> <a href="/tags/ssh/" style="font-size: 13.33px;">ssh</a> <a href="/tags/ssl/" style="font-size: 10px;">ssl</a> <a href="/tags/tls/" style="font-size: 10px;">tls</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue-持续更新/" style="font-size: 10px;">vue[持续更新]</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/翻譯/" style="font-size: 10px;">翻譯</a>
+      <a href="/tags/ReactJS/" style="font-size: 10px;">ReactJS</a> <a href="/tags/angular2/" style="font-size: 10px;">angular2</a> <a href="/tags/angularjs/" style="font-size: 10px;">angularjs</a> <a href="/tags/auth/" style="font-size: 10px;">auth</a> <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/docker-compose/" style="font-size: 10px;">docker-compose</a> <a href="/tags/e2e/" style="font-size: 10px;">e2e</a> <a href="/tags/echarts/" style="font-size: 10px;">echarts</a> <a href="/tags/elasticsearch/" style="font-size: 13.33px;">elasticsearch</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/frp/" style="font-size: 13.33px;">frp</a> <a href="/tags/github/" style="font-size: 13.33px;">github</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/kafka/" style="font-size: 10px;">kafka</a> <a href="/tags/map/" style="font-size: 10px;">map</a> <a href="/tags/mean/" style="font-size: 10px;">mean</a> <a href="/tags/mongo/" style="font-size: 16.67px;">mongo</a> <a href="/tags/mongodb/" style="font-size: 13.33px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/ng2/" style="font-size: 10px;">ng2</a> <a href="/tags/nginx/" style="font-size: 16.67px;">nginx</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nosql/" style="font-size: 10px;">nosql</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a> <a href="/tags/solr/" style="font-size: 13.33px;">solr</a> <a href="/tags/ssh/" style="font-size: 13.33px;">ssh</a> <a href="/tags/ssl/" style="font-size: 10px;">ssl</a> <a href="/tags/tls/" style="font-size: 10px;">tls</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue-持续更新/" style="font-size: 10px;">vue[持续更新]</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a> <a href="/tags/副本集/" style="font-size: 10px;">副本集</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/翻譯/" style="font-size: 10px;">翻譯</a>
     </div>
   </div>
 
@@ -770,7 +717,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -780,6 +727,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/03/09/Creating-a-Mongo-replicaset-using-docker-Mongo-replicaset-Nodejs-Docker-Compose/">Creating a Mongo replicaset using docker_ Mongo replicaset + Nodejs + Docker Compose</a>
+          </li>
         
           <li>
             <a href="/2019/03/02/Visit-Web-With-Frp-and-Nginx/">Visit  Web With Frp and Nginx</a>
@@ -795,10 +746,6 @@
         
           <li>
             <a href="/2019/02/28/通过-nginx-配置基本的安全验证/">通过 nginx 配置基本的安全验证</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/28/mysql-with-docker/">mysql with docker</a>
           </li>
         
       </ul>
