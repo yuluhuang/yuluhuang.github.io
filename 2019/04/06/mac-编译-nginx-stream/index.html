@@ -4,18 +4,20 @@
   <meta charset="utf-8">
 
   
-  <title>Archives: 2018/1 | 只做一件事, 做好一件事, 做正确的事</title>
+  <title>mac 编译 nginx stream | 只做一件事, 做好一件事, 做正确的事</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="yuluhuang的博客网站">
-<meta property="og:type" content="website">
-<meta property="og:title" content="只做一件事, 做好一件事, 做正确的事">
-<meta property="og:url" content="http://yuluhuang.github.io/archives/2018/01/index.html">
+  <meta name="description" content="上周搭建的gitlab对于ssh clone存在问题，主要是nginx对于stream默认是不支持的，需要自己重新编译。 对于ubuntu,按照网上教程，还是比较简单的，但是在mac下编译问题会稍微复杂一点，但是网上解决方法也很详尽，细心一点，多试几次问题也不大。 一般mac的openssl都是比较老的，且存在漏洞，所有要下最新的指定编译就好了./configure --prefix=/usr/l">
+<meta name="keywords" content="nginx,mac,stream">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mac 编译 nginx stream">
+<meta property="og:url" content="http://yuluhuang.github.io/2019/04/06/mac-编译-nginx-stream/index.html">
 <meta property="og:site_name" content="只做一件事, 做好一件事, 做正确的事">
-<meta property="og:description" content="yuluhuang的博客网站">
+<meta property="og:description" content="上周搭建的gitlab对于ssh clone存在问题，主要是nginx对于stream默认是不支持的，需要自己重新编译。 对于ubuntu,按照网上教程，还是比较简单的，但是在mac下编译问题会稍微复杂一点，但是网上解决方法也很详尽，细心一点，多试几次问题也不大。 一般mac的openssl都是比较老的，且存在漏洞，所有要下最新的指定编译就好了./configure --prefix=/usr/l">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-06T03:43:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="只做一件事, 做好一件事, 做正确的事">
-<meta name="twitter:description" content="yuluhuang的博客网站">
+<meta name="twitter:title" content="mac 编译 nginx stream">
+<meta name="twitter:description" content="上周搭建的gitlab对于ssh clone存在问题，主要是nginx对于stream默认是不支持的，需要自己重新编译。 对于ubuntu,按照网上教程，还是比较简单的，但是在mac下编译问题会稍微复杂一点，但是网上解决方法也很详尽，细心一点，多试几次问题也不大。 一般mac的openssl都是比较老的，且存在漏洞，所有要下最新的指定编译就好了./configure --prefix=/usr/l">
   
     <link rel="alternative" href="/atom.xml" title="只做一件事, 做好一件事, 做正确的事" type="application/atom+xml">
   
@@ -70,39 +72,69 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/28/内网穿透实践/" class="archive-article-date">
-  <time datetime="2018-01-28T13:20:45.000Z" itemprop="datePublished">1月 28</time>
+        <section id="main"><article id="post-mac-编译-nginx-stream" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/06/mac-编译-nginx-stream/" class="article-date">
+  <time datetime="2019-04-06T03:25:21.000Z" itemprop="datePublished">2019-04-06</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/28/内网穿透实践/">内网穿透实践</a>
+    <h1 class="article-title" itemprop="name">
+      mac 编译 nginx stream
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上周搭建的gitlab对于ssh clone存在问题，主要是nginx对于stream默认是不支持的，需要自己重新编译。</p>
+<p>对于ubuntu,按照网上教程，还是比较简单的，但是在mac下编译问题会稍微复杂一点，但是网上解决方法也很详尽，<br>细心一点，多试几次问题也不大。</p>
+<p>一般mac的openssl都是比较老的，且存在漏洞，所有要下最新的指定编译就好了<br><code>./configure --prefix=/usr/local/nginx --with-stream --with-stream_ssl_module --with-http_stub_status_module  --with-openssl=/usr/local/nginx/openssl-1.0.2r</code></p>
+<p>另一个错误类似 ld: symbol(s) not found for architecture x86_64</p>
+<p>要在 ./configure 之后<br>然后在objs里，打开Makefile，找到<br><code>./config --prefix=xxx.openssl no-shared</code></p>
+<p>把该段的 ./config 改成 ./Configure darwin64-x86_64-cc 其他后面参数不变，保存</p>
+<p>使用方法如下<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">stream &#123;</span><br><span class="line">    upstream ssh &#123;</span><br><span class="line">       <span class="built_in"> server </span>192.168.1.12:22;</span><br><span class="line">    &#125;</span><br><span class="line">   <span class="built_in"> server </span>&#123;</span><br><span class="line">        listen        12345;</span><br><span class="line">        proxy_pass    ssh;</span><br><span class="line"></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yuluhuang.github.io/2019/04/06/mac-编译-nginx-stream/" data-id="cju4ygijn000tal3179oagoql" class="article-share-link">Share</a>
+      
+        <a href="http://yuluhuang.github.io/2019/04/06/mac-编译-nginx-stream/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stream/">stream</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/09/Creating-a-Mongo-replicaset-using-docker-Mongo-replicaset-Nodejs-Docker-Compose/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Creating a Mongo replicaset using docker_ Mongo replicaset + Nodejs + Docker Compose</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </section>
         
           <aside id="sidebar">
@@ -200,11 +232,13 @@
 <script>
   var disqus_shortname = 'yuluhuanghexo';
   
+  var disqus_url = 'http://yuluhuang.github.io/2019/04/06/mac-编译-nginx-stream/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
