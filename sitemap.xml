@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yuluhuang.github.io/resume/index.html</loc>
+    
+    <lastmod>2019-06-15T03:22:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yuluhuang.github.io/2019/04/06/mac-%E7%BC%96%E8%AF%91-nginx-stream/</loc>
     
-    <lastmod>2019-04-06T03:43:44.000Z</lastmod>
+    <lastmod>2019-04-06T03:50:20.000Z</lastmod>
     
   </url>
   
@@ -23,7 +30,7 @@
   </url>
   
   <url>
-    <loc>http://yuluhuang.github.io/2018/03/06/deep-and-shallow-copy-js/</loc>
+    <loc>http://yuluhuang.github.io/2018/09/22/2018-9-22-%E8%AE%B0/</loc>
     
     <lastmod>2019-03-09T12:17:41.000Z</lastmod>
     
@@ -37,7 +44,7 @@
   </url>
   
   <url>
-    <loc>http://yuluhuang.github.io/2018/09/22/2018-9-22-%E8%AE%B0/</loc>
+    <loc>http://yuluhuang.github.io/2018/03/06/deep-and-shallow-copy-js/</loc>
     
     <lastmod>2019-03-09T12:17:41.000Z</lastmod>
     
@@ -72,14 +79,7 @@
   </url>
   
   <url>
-    <loc>http://yuluhuang.github.io/2018/05/02/react-vs-vue/</loc>
-    
-    <lastmod>2019-02-28T03:19:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yuluhuang.github.io/2016/03/16/hexoUpBlog/</loc>
+    <loc>http://yuluhuang.github.io/2016/10/27/weixin/</loc>
     
     <lastmod>2019-02-28T03:19:20.000Z</lastmod>
     
@@ -93,21 +93,14 @@
   </url>
   
   <url>
+    <loc>http://yuluhuang.github.io/2018/04/28/MySQL%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BB%8B%E7%BB%8D/</loc>
+    
+    <lastmod>2019-02-28T03:19:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yuluhuang.github.io/2016/10/23/mean-tasklist/</loc>
-    
-    <lastmod>2019-02-28T03:19:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yuluhuang.github.io/2016/10/27/ng2/</loc>
-    
-    <lastmod>2019-02-28T03:19:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yuluhuang.github.io/2018/10/12/Github-%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95-%E8%AE%A9%E4%BD%A0%E7%9A%84%E7%BD%91%E7%AB%99%E6%9B%B4%E8%BD%BB%E5%B7%A7/</loc>
     
     <lastmod>2019-02-28T03:19:20.000Z</lastmod>
     
@@ -121,6 +114,27 @@
   </url>
   
   <url>
+    <loc>http://yuluhuang.github.io/2016/10/27/ng2/</loc>
+    
+    <lastmod>2019-02-28T03:19:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yuluhuang.github.io/2018/05/02/react-vs-vue/</loc>
+    
+    <lastmod>2019-02-28T03:19:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yuluhuang.github.io/2016/03/19/grunt-requirejs-angularjs/</loc>
+    
+    <lastmod>2019-02-28T03:19:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yuluhuang.github.io/2016/04/10/vue/</loc>
     
     <lastmod>2019-02-28T03:19:20.000Z</lastmod>
@@ -128,14 +142,7 @@
   </url>
   
   <url>
-    <loc>http://yuluhuang.github.io/2016/10/27/weixin/</loc>
-    
-    <lastmod>2019-02-28T03:19:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yuluhuang.github.io/2018/04/28/MySQL%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BB%8B%E7%BB%8D/</loc>
+    <loc>http://yuluhuang.github.io/2016/03/16/hexoUpBlog/</loc>
     
     <lastmod>2019-02-28T03:19:20.000Z</lastmod>
     
@@ -149,13 +156,6 @@
   </url>
   
   <url>
-    <loc>http://yuluhuang.github.io/2018/03/23/echarts-map/</loc>
-    
-    <lastmod>2019-02-28T03:19:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yuluhuang.github.io/2018/01/28/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E5%AE%9E%E8%B7%B5/</loc>
     
     <lastmod>2019-02-28T03:19:20.000Z</lastmod>
@@ -163,7 +163,7 @@
   </url>
   
   <url>
-    <loc>http://yuluhuang.github.io/2016/03/19/grunt-requirejs-angularjs/</loc>
+    <loc>http://yuluhuang.github.io/2018/03/23/echarts-map/</loc>
     
     <lastmod>2019-02-28T03:19:20.000Z</lastmod>
     
@@ -212,7 +212,7 @@
   </url>
   
   <url>
-    <loc>http://yuluhuang.github.io/resume/index.html</loc>
+    <loc>http://yuluhuang.github.io/2018/10/12/Github-%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95-%E8%AE%A9%E4%BD%A0%E7%9A%84%E7%BD%91%E7%AB%99%E6%9B%B4%E8%BD%BB%E5%B7%A7/</loc>
     
     <lastmod>2019-02-28T03:19:20.000Z</lastmod>
     

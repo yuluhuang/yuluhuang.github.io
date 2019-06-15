@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yuluhuang.github.io/"/>
-  <updated>2019-04-06T03:43:44.000Z</updated>
+  <updated>2019-04-06T03:50:20.000Z</updated>
   <id>http://yuluhuang.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yuluhuang.github.io/2019/04/06/mac-%E7%BC%96%E8%AF%91-nginx-stream/"/>
     <id>http://yuluhuang.github.io/2019/04/06/mac-编译-nginx-stream/</id>
     <published>2019-04-06T03:25:21.000Z</published>
-    <updated>2019-04-06T03:43:44.000Z</updated>
+    <updated>2019-04-06T03:50:20.000Z</updated>
     
     <content type="html"><![CDATA[<p>上周搭建的gitlab对于ssh clone存在问题，主要是nginx对于stream默认是不支持的，需要自己重新编译。</p><p>对于ubuntu,按照网上教程，还是比较简单的，但是在mac下编译问题会稍微复杂一点，但是网上解决方法也很详尽，<br>细心一点，多试几次问题也不大。</p><p>一般mac的openssl都是比较老的，且存在漏洞，所有要下最新的指定编译就好了<br><code>./configure --prefix=/usr/local/nginx --with-stream --with-stream_ssl_module --with-http_stub_status_module  --with-openssl=/usr/local/nginx/openssl-1.0.2r</code></p><p>另一个错误类似 ld: symbol(s) not found for architecture x86_64</p><p>要在 ./configure 之后<br>然后在objs里，打开Makefile，找到<br><code>./config --prefix=xxx.openssl no-shared</code></p><p>把该段的 ./config 改成 ./Configure darwin64-x86_64-cc 其他后面参数不变，保存</p><p>使用方法如下<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">stream &#123;</span><br><span class="line">    upstream ssh &#123;</span><br><span class="line">       <span class="built_in"> server </span>192.168.1.12:22;</span><br><span class="line">    &#125;</span><br><span class="line">   <span class="built_in"> server </span>&#123;</span><br><span class="line">        listen        12345;</span><br><span class="line">        proxy_pass    ssh;</span><br><span class="line"></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
     
@@ -34,6 +34,8 @@
       
     
     </summary>
+    
+      <category term="技术" scheme="http://yuluhuang.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
       <category term="nginx" scheme="http://yuluhuang.github.io/tags/nginx/"/>
@@ -65,9 +67,9 @@
       <category term="技术" scheme="http://yuluhuang.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="docker" scheme="http://yuluhuang.github.io/tags/docker/"/>
-    
       <category term="mongo" scheme="http://yuluhuang.github.io/tags/mongo/"/>
+    
+      <category term="docker" scheme="http://yuluhuang.github.io/tags/docker/"/>
     
       <category term="docker-compose" scheme="http://yuluhuang.github.io/tags/docker-compose/"/>
     
