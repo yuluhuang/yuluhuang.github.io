@@ -67,9 +67,9 @@
       <category term="技术" scheme="http://yuluhuang.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="mongo" scheme="http://yuluhuang.github.io/tags/mongo/"/>
-    
       <category term="docker" scheme="http://yuluhuang.github.io/tags/docker/"/>
+    
+      <category term="mongo" scheme="http://yuluhuang.github.io/tags/mongo/"/>
     
       <category term="docker-compose" scheme="http://yuluhuang.github.io/tags/docker-compose/"/>
     
@@ -225,9 +225,9 @@
       <category term="https://yuluhuang.com" scheme="http://yuluhuang.github.io/categories/https-yuluhuang-com/"/>
     
     
-      <category term="mysql" scheme="http://yuluhuang.github.io/tags/mysql/"/>
-    
       <category term="docker" scheme="http://yuluhuang.github.io/tags/docker/"/>
+    
+      <category term="mysql" scheme="http://yuluhuang.github.io/tags/mysql/"/>
     
   </entry>
   
